@@ -1,0 +1,209 @@
+Open Standard License — SLANG-Audit Reference Implementation
+
+SLANG-Audit — Structural Resolution (Audit Without Verification)
+Shunyaya Structural Resolution Model
+
+Legal Status
+
+This license is a permissive Open Standard license for the SLANG-Audit reference implementation.
+
+To the maximum extent permitted by applicable law, this license grants rights similar in spirit to permissive open-source licenses, while preserving truthful representation requirements for the SLANG-Audit name and reference implementation.
+
+If any provision is found unenforceable, the remaining provisions remain in effect.
+
+Nature of Release
+
+This is a minimal reference implementation.
+
+It is intended to demonstrate a structural correctness model—not to represent a complete audit system or regulatory framework.
+
+Behavioral guarantees apply only within the scope of the reference model.
+
+Permission
+
+Permission is hereby granted, free of charge, to any person or organization to:
+
+use
+execute
+study
+reproduce
+publish
+distribute
+modify
+implement
+extend
+
+the SLANG-Audit reference implementation, in whole or in part, for commercial or non-commercial use, subject only to the representation and naming conditions defined in this license.
+
+No registration, fees, or approval required.
+
+No Restrictions on Use
+
+This reference implementation imposes no restrictions on usage, except:
+
+truthful representation
+non-misleading use of the SLANG-Audit name
+
+Attribution is not required.
+No endorsement or certification is implied.
+No runtime obligations apply.
+
+Correctness is governed by:
+
+structure_mature = complete AND consistent
+
+—not by licensing terms.
+
+correctness is a property of structure — independent of process
+
+Representation & Naming
+
+Modified or extended implementations:
+
+must not be presented as the canonical SLANG-Audit reference implementation unless the structural behavior is preserved
+must not imply official authorship, certification, or endorsement
+
+Use of the name “SLANG-Audit” must not imply:
+
+endorsement
+certification
+governance authority
+official compliance
+
+Recommended Attribution (Optional)
+
+Preferred form:
+
+Implements SLANG-Audit — Structural Resolution (Shunyaya Structural Model)
+
+Attribution must not imply endorsement.
+
+Scope of the Reference Implementation
+
+This release includes:
+
+structural audit definitions
+rule-based resolution logic
+a minimal executable reference (tiny kernel)
+outputs and reference traces
+
+SLANG-Audit defines a deterministic structural model where audit outcomes emerge from structure:
+
+resolve(structure) ->
+    outcome_visible        if complete AND consistent
+    no_visible_outcome     if incomplete
+    ABSTAIN                if conflicting
+
+What This Demonstrates
+
+• audit outcomes without verification workflows
+• independence from replay and reconciliation processes
+• audit trails are not required for correctness
+• independence from ordering and sequencing
+• structural maturity governing audit visibility
+• safe handling of incomplete or conflicting structure
+• deterministic and reproducible audit outcomes
+
+Conformance
+
+An implementation is considered compatible if it preserves:
+
+structure-based correctness
+independence from verification workflows as a requirement
+deterministic resolution
+structural maturity-driven visibility
+reproducibility under equivalent inputs
+explicit handling of incomplete and conflicting structure
+
+Conformance is judged by observable behavior, not internal implementation.
+
+S1 = S2 -> Outcome1 = Outcome2
+
+Implementation Note — ABSTAIN
+
+In this reference implementation:
+
+ABSTAIN is defined at the model level
+but may not be fully implemented in minimal kernels
+
+Conformance requires:
+
+correct handling of incomplete structure
+safe handling of conflicting structure (including ABSTAIN semantics at model level)
+
+Full ABSTAIN propagation may appear in extended implementations.
+
+Relationship to Shunyaya Framework
+
+SLANG-Audit is part of the broader Shunyaya framework.
+
+It builds on:
+
+SLANG → structural resolution without execution
+STOCRS → structure-first computation (correctness from structure)
+STIME → structural time (time derived from valid structural transitions)
+SSUM-Time → structural clock engine (time reconstruction and recovery)
+ORL → structural correctness across systems (order-independent resolution)
+
+Architecture License
+
+The conceptual architecture and documentation are licensed under:
+
+Creative Commons Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
+
+Permitted:
+
+research
+academic use
+study and reproduction
+non-commercial distribution
+
+Commercial use of architecture text is not permitted under this license.
+
+Full license:
+https://creativecommons.org/licenses/by-nc/4.0/
+
+Responsibility
+
+Use of SLANG-Audit in real-world systems is entirely at the user’s own responsibility.
+
+This reference implementation provides:
+
+deterministic structural audit resolution
+audit outcome emergence from structure
+safe handling of incomplete/conflicting structure
+
+It does not provide:
+
+regulatory compliance guarantees
+regulatory acceptance or approval
+audit certification
+fraud detection or prevention
+legal or financial assurance
+operational guarantees
+
+No Warranty
+
+THE SLANG-AUDIT REFERENCE IMPLEMENTATION IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND.
+
+THIS INCLUDES, BUT IS NOT LIMITED TO:
+
+MERCHANTABILITY
+FITNESS FOR A PARTICULAR PURPOSE
+NON-INFRINGEMENT
+
+IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM USE OF THIS IMPLEMENTATION.
+
+Closing Statement
+
+SLANG-Audit explores a simple but fundamental idea:
+
+Audit correctness can emerge deterministically from structure, without verification workflows, replay, or reconciliation.
+
+It is released openly to encourage:
+
+independent validation
+real-world testing
+safe experimentation
+
+SLANG-Audit is offered as a minimal reference implementation of that possibility.
