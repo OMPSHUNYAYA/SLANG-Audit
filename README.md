@@ -16,6 +16,8 @@
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Open-Standard](https://img.shields.io/badge/Reference-Open%20Standard-blue)
 
+![slang-audit-verify](https://github.com/OMPSHUNYAYA/SLANG-Audit/actions/workflows/slang-audit-verify.yml/badge.svg)
+
 **Proven in ~965 Bytes.**
 
 Audit outcomes emerge directly from structure—no replay, no reconciliation, no workflow, only structural correctness.
