@@ -1,0 +1,80 @@
+SLANG-Audit Verification
+
+1. Run reference demonstration:
+   python demo/slang_audit.py
+
+2. Observe:
+   - deterministic structural audit resolution
+   - no dependence on verification workflows, replay, or reconciliation
+   - rules evaluate purely based on structure
+   - no audit trail required for correctness
+   - audit outcome emerges only when structure is complete and consistent
+
+3. Expected visible state (baseline run):
+   - contracts_supported = "partial"
+   - costs_supported = "true"
+   - reported_profit = "300"
+   - expense_valid = "true"
+
+   Note:
+   - revenue_valid is not visible (structure incomplete)
+   - structural_profit is not visible
+   - audit is not visible
+
+4. Expected structural maturity:
+   - False (structure incomplete)
+
+5. Expected behavior:
+   - complete structure → audit outcome visible
+   - incomplete structure → no audit outcome
+   - conflicting structure → ABSTAIN (no unsafe outcome)
+   - identical structure → identical outcome
+
+6. Verify determinism:
+   - run the script multiple times
+   - confirm identical visible state
+
+7. Modify structure (test structural completion):
+   Update:
+   contracts_supported = "true"
+
+   Run again:
+   python demo/slang_audit.py
+
+   Expected:
+   - revenue_valid = "true"
+   - expense_valid = "true"
+   - structural_profit = "300"
+   - audit = "pass"
+
+   Structural maturity:
+   - True
+
+8. Verify file identity:
+   certutil -hashfile demo\slang_audit.py SHA256
+
+Note:
+- the file hash represents file identity
+- structural resolution is independent of file representation
+
+Structural resolution principle:
+
+   resolve(structure) →
+
+       outcome_visible        if complete AND consistent
+       no_visible_outcome     if incomplete
+       ABSTAIN                if conflicting
+
+The audit outcome is derived from structure, not from a verification process.
+
+- conflicting structure → ABSTAIN (conceptual model; not implemented in this minimal reference kernel)
+
+9. Confirm:
+   - output is identical across repeated runs
+   - incomplete structure produces no audit outcome
+   - completing structure reveals audit deterministically
+   - no verification workflow or replay is required
+
+Result:
+Deterministic structural audit resolution confirmed for SLANG-Audit.
+Audit outcomes emerge from structure without verification workflows, replay, reconciliation, or sequencing.
