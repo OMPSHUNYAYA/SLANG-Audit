@@ -1,0 +1,168 @@
+name: slang-audit-verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify file hash matches freeze
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          import re
+          import sys
+
+          kernel_path = Path("demo/slang_audit.py")
+          freeze_path = Path("VERIFY/FREEZE_DEMO_SHA256.txt")
+
+          actual_hash = hashlib.sha256(kernel_path.read_bytes()).hexdigest()
+
+          freeze_text = freeze_path.read_text(encoding="utf-8")
+          m = re.search(r'([0-9a-f]{64})', freeze_text)
+          if not m:
+              print("ERROR: Could not find 64-char SHA256 in VERIFY/FREEZE_DEMO_SHA256.txt")
+              sys.exit(1)
+
+          expected_hash = m.group(1)
+
+          if actual_hash != expected_hash:
+              print("ERROR: File hash mismatch")
+              print("Expected:", expected_hash)
+              print("Actual:  ", actual_hash)
+              sys.exit(1)
+
+          print("File hash verified:", actual_hash)
+          PY
+
+      - name: Run baseline kernel and verify expected output
+        shell: bash
+        run: |
+          python - <<'PY'
+          import ast
+          import subprocess
+          import sys
+
+          cmd = [sys.executable, "demo/slang_audit.py"]
+          result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+          out = result.stdout.strip()
+
+          expected_visible_state = {
+              "contracts_supported": "partial",
+              "costs_supported": "true",
+              "reported_profit": "300",
+              "expense_valid": "true",
+          }
+
+          try:
+              actual_visible_state = ast.literal_eval(out)
+          except Exception as e:
+              print("ERROR: Could not parse script output as Python dict:", e)
+              print("Raw output:")
+              print(out)
+              sys.exit(1)
+
+          if actual_visible_state != expected_visible_state:
+              print("ERROR: Visible state mismatch")
+              print("Expected:", expected_visible_state)
+              print("Actual:  ", actual_visible_state)
+              sys.exit(1)
+
+          print("Baseline output verified.")
+          print("Visible state:", actual_visible_state)
+          PY
+
+      - name: Run kernel twice and verify deterministic output
+        shell: bash
+        run: |
+          python - <<'PY'
+          import subprocess
+          import sys
+
+          cmd = [sys.executable, "demo/slang_audit.py"]
+
+          result1 = subprocess.run(cmd, capture_output=True, text=True, check=True)
+          result2 = subprocess.run(cmd, capture_output=True, text=True, check=True)
+
+          out1 = result1.stdout.strip()
+          out2 = result2.stdout.strip()
+
+          if out1 != out2:
+              print("ERROR: Non-deterministic output")
+              print("Run 1:", out1)
+              print("Run 2:", out2)
+              sys.exit(1)
+
+          print("Deterministic output verified.")
+          print("Output:", out1)
+          PY
+
+      - name: Run completion path check on temporary copy
+        shell: bash
+        run: |
+          python - <<'PY'
+          import ast
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          src = Path("demo/slang_audit.py")
+          temp = Path("demo/_ci_completion_check.py")
+
+          text = src.read_text(encoding="utf-8")
+          old = '"contracts_supported": "partial"'
+          new = '"contracts_supported": "true"'
+
+          if old not in text:
+              print("ERROR: Expected baseline input not found in demo/slang_audit.py")
+              sys.exit(1)
+
+          temp.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          expected_visible_state = {
+              "contracts_supported": "true",
+              "costs_supported": "true",
+              "reported_profit": "300",
+              "revenue_valid": "true",
+              "expense_valid": "true",
+              "structural_profit": "300",
+              "audit": "pass",
+          }
+
+          try:
+              result = subprocess.run([sys.executable, str(temp)], capture_output=True, text=True, check=True)
+              out = result.stdout.strip()
+              actual_visible_state = ast.literal_eval(out)
+          except Exception as e:
+              print("ERROR: Completion-path check failed:", e)
+              if 'out' in locals():
+                  print("Raw output:")
+                  print(out)
+              sys.exit(1)
+          finally:
+              if temp.exists():
+                  temp.unlink()
+
+          if actual_visible_state != expected_visible_state:
+              print("ERROR: Completion-path visible state mismatch")
+              print("Expected:", expected_visible_state)
+              print("Actual:  ", actual_visible_state)
+              sys.exit(1)
+
+          print("Completion-path output verified.")
+          print("Visible state:", actual_visible_state)
+          PY
