@@ -1,785 +1,616 @@
-# ⭐ **FAQ — SLANG-Audit**
+# SLANG-Audit v2.4.0
 
-## **Structural Resolution (Audit Without Verification)**
-**Shunyaya Structural Resolution Model**
+## Frequently Asked Questions
 
-**Deterministic • Verification-Free • Replay-Free • Structure-Based Audit Resolution**
-
-**No Verification • No Replay • No Audit Trail**
+Bounded Structural Audit Resolution | Minimal Structural Witnesses | Incremental Proof Deltas | Checkpoint-Bound Lineage
 
 ---
 
-## **SECTION A — Purpose & Positioning**
+## Contents
 
-### **A1. What is SLANG-Audit?**
-
-SLANG-Audit is a **structural resolution model** for audit outcomes.
-
-Instead of determining correctness from:
-
-- verification workflows  
-- replay of transactions  
-- reconciliation processes  
-- audit trails  
-
-SLANG-Audit determines correctness from:
-
-- **structure completeness and consistency**
-
-Audit truth is not verified through process —  
-it is **revealed from structure**.
+- **Section A - Purpose and Scope**
+  - A1. What is SLANG-Audit?
+  - A2. What does "declared-structure scope only" mean?
+  - A3. Does `PASS` mean that an audit passed in the professional sense?
+  - A4. Does SLANG-Audit verify external truth or source provenance?
+  - A5. Is SLANG-Audit a replacement for professional auditing, accounting, compliance, or assurance procedures?
+  - A6. Is SLANG-Audit production-qualified audit infrastructure?
+- **Section B - Structural Resolution**
+  - B1. What information does the resolver accept?
+  - B2. What does `RESOLVED` mean?
+  - B3. What does `INCOMPLETE` mean?
+  - B4. What does `ABSTAIN` mean?
+  - B5. What does `FORBIDDEN` mean?
+  - B6. What does `UNSUPPORTED` mean?
+  - B7. Why can a `VIOLATED` target occur while the resolver state is `RESOLVED`?
+  - B8. Why is an unrelated contradiction not automatically fatal to every target?
+  - B9. What does an evidence SHA-256 commitment establish?
+  - B10. Can SLANG-Audit verify that supplied file bytes match a declared commitment?
+- **Section C - Minimal Witnesses and Structural Criticality**
+  - C1. What is a minimal sufficient witness?
+  - C2. Is a minimal sufficient witness the minimum real-world evidence required by an auditor?
+  - C3. What is a minimal verdict cut?
+  - C4. What is a completion frontier?
+  - C5. What is a repair-to-`PASS` counterfactual?
+  - C6. Are counterfactual repairs professional audit recommendations?
+  - C7. What happens if bounded exact witness or counterfactual search exceeds its declared limits?
+- **Section D - Incremental Proof Deltas**
+  - D1. What is an incremental proof delta?
+  - D2. Which structural changes are supported incrementally in v2.4.0?
+  - D3. What are dependency-impacted and preserved targets?
+  - D4. Does incremental resolution bypass full recomputation?
+  - D5. What is full-recomputation equivalence?
+  - D6. Is an incremental delta free-floating?
+- **Section E - Proof Ledger, Checkpoints, and Lineage**
+  - E1. What is a proof ledger?
+  - E2. What does a proof-ledger checkpoint establish?
+  - E3. Is a checkpoint a digital signature or trusted timestamp?
+  - E4. Can two different declared histories reach the same terminal state?
+  - E5. How does SLANG-Audit compare two ledgers?
+  - E6. What historical mutations does the bundled validation reject?
+  - E7. Does a valid proof ledger establish external chronology?
+- **Section F - Certificates, Verification, and Integrity**
+  - F1. What is a proof-carrying certificate?
+  - F2. Can a false conclusion become valid merely by recomputing SHA-256 hashes?
+  - F3. Why does the package include two verification implementations?
+  - F4. What does the JavaScript verifier check?
+  - F5. What is the cross-language conformance gate?
+  - F6. What does the package verifier check?
+  - F7. What are the current bundled validation gates?
+  - F8. What is included in the checksum manifest?
+  - F9. Why are documentation, examples, workflows, and the diagram intentionally unhashed?
+  - F10. What does `INDEPENDENT_THIRD_PARTY_REPRODUCTION: OPEN` mean?
+- **Section G - Architecture and Repository Navigation**
+  - G1. What is the core architectural flow?
+  - G2. Does SLANG-Audit require external datasets or network access?
+  - G3. What runtime dependencies does the reference implementation require?
+  - G4. Where should a new reader begin?
 
 ---
 
-### **A2. What does “audit without verification” mean?**
+## Section A - Purpose and Scope
 
-It means:
+### A1. What is SLANG-Audit?
 
-audit correctness does not require:
+SLANG-Audit is a bounded deterministic resolver for caller-declared audit evidence, structural rules, target controls, and declared-state lineage.
 
-- verification procedures  
-- replay of historical events  
-- reconciliation pipelines  
-- approval workflows  
+Its primary relation is:
 
-Instead:
+```text
+declared audit evidence + structural rules + controls
+-> deterministic closure
+-> bounded target verdicts
+-> proof-carrying certificate
+```
 
-audit outcome emerges **only when structure is complete and consistent**
+The architecture further supports target-specific explanation, structural criticality, incremental evidence/rule deltas, and predecessor-bound proof ledgers.
 
----
+### A2. What does "declared-structure scope only" mean?
 
-### **A3. Core idea in one line**
+It means the resolver reasons only over the structure admitted through its input contract.
 
-`correctness = structure`
+A declaration such as:
 
----
+```text
+source_supported=true
+```
 
-### **A4. The Broader Shift — Dependency Elimination Framework**
+is treated as an admitted structural fact. The resolver does not independently determine whether the corresponding external document, ledger, log, policy, statement, signature, timestamp, or other source is authentic, complete, or true.
 
-**The Unifying Truth:**
+### A3. Does `PASS` mean that an audit passed in the professional sense?
 
-`same structure → same outcome`
+No. `PASS` means that every requirement of the declared target control is structurally supported by the admitted model.
 
-If correctness remains after removing a dependency, that dependency was never fundamental.
+It does not constitute a professional audit opinion, assurance conclusion, accounting determination, compliance certification, or regulatory finding.
 
-SLANG-Audit is one instance of a broader pattern:
-
-audit correctness does not depend on verification workflows  
-it is preserved by **structure**
-
----
-
-### **A5. Is SLANG-Audit removing audit?**
+### A4. Does SLANG-Audit verify external truth or source provenance?
 
 No.
 
-It removes **verification as a dependency for correctness**, not audit itself.
+```text
+external_truth_verified:false
+external_source_provenance_verified:false
+```
 
-Audit remains:
+External source authentication, provenance establishment, trusted timing, and independent fact verification are outside the reference model.
 
-- a classification of validity  
-- a structural truth layer  
+### A5. Is SLANG-Audit a replacement for professional auditing, accounting, compliance, or assurance procedures?
+
+No. The reference implementation does not replace professional judgment, evidence acquisition, source authentication, reconciliation, sampling, substantive testing, control testing, accounting analysis, regulatory review, or other procedures required in real-world audit and assurance work.
+
+### A6. Is SLANG-Audit production-qualified audit infrastructure?
+
+No production qualification is claimed. The repository is a structural research and verification reference implementation.
+
+Regulated, financial, safety-critical, legal, compliance, or assurance deployment requires independent engineering, security review, domain validation, governance, source authentication, professional judgment, and applicable regulatory controls.
 
 ---
 
-### **A6. Is this replacing audit systems?**
+## Section B - Structural Resolution
+
+### B1. What information does the resolver accept?
+
+The declared input structure includes Boolean audit atoms, evidence sources and claims, structural rules, controls, and requested targets. Evidence entries may optionally include SHA-256 commitment strings with identity-binding semantics.
+
+See the [Input Contract](./Input-Contract.md) and [Structural Model](./Structural-Model.md).
+
+### B2. What does `RESOLVED` mean?
+
+`RESOLVED` means the requested targets have been structurally determined under the admitted model.
+
+A resolved target may have either:
+
+```text
+PASS
+```
+
+or:
+
+```text
+VIOLATED
+```
+
+depending on whether the declared structure supports or opposes its required literals.
+
+### B3. What does `INCOMPLETE` mean?
+
+`INCOMPLETE` means at least one requested target lacks sufficient admitted structure for a structural decision.
+
+The resolver does not invent missing support.
+
+### B4. What does `ABSTAIN` mean?
+
+`ABSTAIN` means a contradiction affects a required target literal so the resolver refuses to expose a `PASS` or `VIOLATED` conclusion for that target.
+
+### B5. What does `FORBIDDEN` mean?
+
+`FORBIDDEN` means the submitted source structure violates a reserved input boundary, such as attempting to inject derived result, certificate, proof, or bundle material into the declared source surface.
+
+### B6. What does `UNSUPPORTED` mean?
+
+`UNSUPPORTED` means the submitted input lies outside the bounded structural contract, including unsupported schema forms or declared resource limits.
+
+### B7. Why can a `VIOLATED` target occur while the resolver state is `RESOLVED`?
+
+Because the resolver can successfully determine that the admitted structure opposes at least one required control literal.
+
+The target is structurally resolved, and the resolved verdict is:
+
+```text
+VIOLATED
+```
+
+### B8. Why is an unrelated contradiction not automatically fatal to every target?
+
+Resolution is target-specific.
+
+A contradiction remains visible in the global structural closure, but only contradictions affecting a required target literal force that target to `ABSTAIN`.
+
+Therefore:
+
+```text
+unrelated contradiction
+!=
+automatic failure of every target
+```
+
+### B9. What does an evidence SHA-256 commitment establish?
+
+It binds a declared evidence identity into the canonical structure.
+
+It does not establish:
+
+```text
+source authenticity
+source authorship
+trusted time
+external existence
+source completeness
+external truth
+```
+
+See [Scientific and Operational Boundaries](./Scientific-and-Operational-Boundaries.md).
+
+### B10. Can SLANG-Audit verify that supplied file bytes match a declared commitment?
+
+Yes, through a separate optional utility. The evidence content-binding verifier checks:
+
+```text
+SHA256(exact supplied file bytes) == declared commitment
+```
+
+A successful byte match establishes content-to-commitment equality only. It does not establish authorship, provenance, completeness, truth, legal validity, or trusted time.
+
+See [Evidence Content Binding](./Evidence-Content-Binding.md).
+
+---
+
+## Section C - Minimal Witnesses and Structural Criticality
+
+### C1. What is a minimal sufficient witness?
+
+A minimal sufficient witness is a canonical smallest declared evidence-and-rule substructure, within the bounded exact search contract, that independently reproduces the target verdict.
+
+Conceptually:
+
+```text
+full declared structure
+-> target-specific dependency analysis
+-> minimal sufficient substructure
+-> same target verdict
+```
+
+See [Minimal Witness and Criticality](./Minimal-Witness-and-Criticality.md).
+
+### C2. Is a minimal sufficient witness the minimum real-world evidence required by an auditor?
 
 No.
 
-It can act as:
+Minimality applies only inside the admitted structural model.
 
-- a structural validation layer  
-- a deterministic audit resolution layer  
-- a correctness reference layer  
+```text
+minimal declared structural witness
+!=
+minimum real-world audit evidence
+```
 
----
+### C3. What is a minimal verdict cut?
 
-### **A7. Does SLANG-Audit change audit outcomes?**
+A minimal verdict cut is a smallest declared evidence/rule removal, under the bounded search contract, that changes the current target verdict.
+
+For example:
+
+```text
+PASS
++ remove one structurally critical source
+-> INCOMPLETE
+```
+
+### C4. What is a completion frontier?
+
+For an `INCOMPLETE` target, a completion frontier identifies a smallest hypothetical declared-literal addition that would produce `PASS` within the admitted structural model.
+
+### C5. What is a repair-to-`PASS` counterfactual?
+
+It is a bounded hypothetical structural change that combines declared-source removals and, when required, hypothetical literal additions to reproduce `PASS`.
+
+It operates only within the declared model.
+
+### C6. Are counterfactual repairs professional audit recommendations?
 
 No.
 
-For valid structure:
+They are structural counterfactuals, not remediation instructions, professional recommendations, legal conclusions, accounting advice, or assertions of real-world evidentiary sufficiency.
 
-`classical audit result = SLANG-Audit result`
+### C7. What happens if bounded exact witness or counterfactual search exceeds its declared limits?
 
-Difference:
+The reference implementation preserves the bounded contract rather than silently claiming an unproven global minimum.
 
-SLANG-Audit refuses to confirm **incomplete or inconsistent structure**
+The relevant analysis may therefore refuse or remain unavailable when its declared exact-search limits are exceeded.
 
 ---
 
-### **A8. Is this only for financial audit?**
+## Section D - Incremental Proof Deltas
+
+### D1. What is an incremental proof delta?
+
+An incremental proof delta represents a declared evidence/rule change bound to a specific previous certified bundle.
+
+```text
+previous certified state
++ declared delta
+-> updated certified state
+```
+
+See [Incremental Proof Deltas](./Incremental-Proof-Deltas.md).
+
+### D2. Which structural changes are supported incrementally in v2.4.0?
+
+The current incremental profile supports evidence and rule additions, replacements, and removals.
+
+The following remain outside the incremental profile:
+
+```text
+atom declaration mutation
+control definition mutation
+target-set mutation
+```
+
+### D3. What are dependency-impacted and preserved targets?
+
+Dependency-impacted targets are targets whose structural proof must be reconsidered after the declared delta.
+
+Preserved targets are targets whose target-local proof identity remains unchanged after the update.
+
+This supports the distinction:
+
+```text
+whole audit structure changed
+!=
+every target proof changed
+```
+
+### D4. Does incremental resolution bypass full recomputation?
 
 No.
 
-Same principle applies to:
+The current reference implementation requires equality with a fresh full recomputation before an incremental result is accepted.
 
-- compliance systems  
-- security validation  
-- AI decision auditing  
-- medical validation  
-- distributed system correctness  
+### D5. What is full-recomputation equivalence?
 
----
+It is the correctness gate:
 
-## **SECTION B — Structural Audit Model**
+```text
+incremental updated result
+==
+fresh full recomputation result
+```
 
-### **B1. What is “structure” in SLANG-Audit?**
+The bundled implementation verifies this equivalence for accepted incremental results.
 
-Structure is the **complete and consistent set of relationships** required to support an audit outcome.
-
-Example:
-
-`contracts_supported = true`  
-`costs_supported = true`  
-
-→ structural_profit becomes valid  
-→ audit outcome emerges  
-
-Structure represents:
-
-- what is provable  
-- not what is reported  
-
----
-
-### **B2. What determines whether data is considered valid?**
-
-Structure defines **admissibility**.
-
-Only relationships that satisfy structural conditions are admitted into resolution.
-
-Invalid or unsupported data is **ignored — not corrected**.
-
----
-
-### **B3. When is an audit outcome valid?**
-
-Only when:
-
-`structure_mature = complete AND consistent`
-
-Audit becomes visible only when this condition is satisfied.
-
----
-
-### **B4. What if structure is incomplete?**
-
-State:
-
-`INCOMPLETE`
-
-Audit outcome does not appear.
-
-The system remains silent.
-
----
-
-### **B5. What if structure conflicts?**
-
-State:
-
-`ABSTAIN`
-
-No unsafe or contradictory audit is produced.
-
-Example:
-
-`audit = pass`  
-`audit = fail`  
-
-→ conflicting structure  
-
-Result:
-
-`resolve(structure) → ABSTAIN`
-
----
-
-### **B6. What is RESOLVED?**
-
-`structure_mature → RESOLVED`
-
-Audit outcome becomes visible.
-
----
-
-### **B7. What happens to reported values?**
-
-Reported values may exist without structural support.
-
-They are not:
-
-- confirmed  
-- rejected  
-
-They are simply **not granted audit reality**.
-
----
-
-### **B8. Why no “verify and correct later”?**
-
-Because:
-
-`incorrect audit > delayed audit`
-
-SLANG-Audit enforces:
-
-only **structurally valid outcomes become visible**
-
----
-
-### **B9. Who defines the structure?**
-
-Structure is defined by **domain rules**.
-
-These rules encode:
-
-what must be true for an outcome to be valid
-
-SLANG-Audit does not invent structure — it evaluates it deterministically.
-
----
-
-## **SECTION C — No Verification Model**
-
-### **C1. What does “no verification” mean?**
-
-No:
-
-- replay of transactions  
-- step-by-step validation  
-- cross-check pipelines  
-- audit trails as dependency  
-
-Audit outcome is not produced by process —  
-it is **revealed from structure**
-
----
-
-### **C2. Is there still computation happening?**
-
-Yes — but not process-driven.
-
-It is:
-
-`resolve(structure)`
-
-not:
-
-`verify(step1 → step2 → step3)`
-
----
-
-### **C3. Is this just faster verification?**
+### D6. Is an incremental delta free-floating?
 
 No.
 
-Verification is **removed as a dependency**.
+A delta is bound to the exact previous certified bundle. It represents a transition from one declared certified structural state to another.
 
 ---
 
-### **C4. Does order matter?**
+## Section E - Proof Ledger, Checkpoints, and Lineage
+
+### E1. What is a proof ledger?
+
+A proof ledger is an ordered sequence of predecessor-bound certified audit-state transitions.
+
+For example:
+
+```text
+S0 + D1 -> S1
+S1 + D2 -> S2
+S2 + D3 -> S3
+S3 + D4 -> S4
+```
+
+Each entry binds its predecessor, base state, delta, incremental certificate, and resulting state.
+
+See [Proof Ledger and Checkpoints](./Proof-Ledger-and-Checkpoints.md).
+
+### E2. What does a proof-ledger checkpoint establish?
+
+A checkpoint identifies a specific declared structural lineage by binding the genesis state, lineage root, terminal state, entry count, and related deterministic identities.
+
+When a checkpoint has been previously pinned, it can distinguish that committed lineage from a different internally valid history.
+
+### E3. Is a checkpoint a digital signature or trusted timestamp?
 
 No.
 
-Structure is **order-independent**.
+A checkpoint is a deterministic structural commitment. It is not:
 
----
+```text
+a digital signature
+a trusted timestamp
+an external publication receipt
+a blockchain consensus proof
+a professional audit attestation
+```
 
-### **C5. Does time matter?**
-
-No.
-
-Audit correctness does not depend on **time or sequence**.
-
----
-
-## **SECTION D — Resolution States**
-
-### **D1. Three outcomes**
-
-- `RESOLVED` → valid audit outcome  
-- `INCOMPLETE` → missing structure  
-- `ABSTAIN` → conflicting structure  
-
----
-
-### **D2. Visibility rule**
-
-`outcome_visible iff structure_mature`
-
----
-
-### **D3. Why is INCOMPLETE important?**
-
-Prevents **false confirmation**.
-
----
-
-### **D4. Why is ABSTAIN critical?**
-
-Prevents **unsafe or contradictory audit**.
-
----
-
-### **D5. ABSTAIN — Implementation Note**
-
-ABSTAIN is part of the structural model.
-
-In this minimal reference kernel:
-
-- ABSTAIN is conceptually defined  
-- but not fully implemented in code  
-
-This is intentional.
-
-The current kernel isolates the core proof:
-
-`correctness = structure`
-
-Extended versions will include:
-
-- explicit ABSTAIN handling  
-- conflict tracking  
-- structural certificate generation  
-
----
-
-### **D6. Can states evolve?**
-
-Yes:
-
-`INCOMPLETE → RESOLVED`  
-`ABSTAIN → RESOLVED`
-
-As structure improves.
-
----
-
-## **SECTION E — Determinism & Convergence**
-
-### **E1. Is SLANG-Audit deterministic?**
+### E4. Can two different declared histories reach the same terminal state?
 
 Yes.
 
----
+The bundled validation includes a same-terminal alternative-history case.
 
-### **E2. Will independent systems agree?**
+Therefore:
 
-Yes.
+```text
+same terminal state
+!=
+same lineage
+```
 
-`S1 = S2 -> Outcome1 = Outcome2`
+Two internally valid histories may reach the same final bundle while retaining different lineage roots and checkpoint identities.
 
----
+### E5. How does SLANG-Audit compare two ledgers?
 
-### **E3. Is communication required?**
+The current lineage comparison classifications are:
 
-No.
+```text
+SAME_LINEAGE
+PREFIX_EXTENSION
+BRANCH_DETECTED
+DIFFERENT_GENESIS
+```
 
-Only **structure matters**.
+A branch comparison can also identify the common-prefix entry count and branch point when available.
 
----
+### E6. What historical mutations does the bundled validation reject?
 
-### **E4. What drives convergence?**
+The proof-ledger validation covers:
 
-Structural completeness.
+```text
+historical entry deletion
+historical entry reordering
+delta substitution
+rehashed semantic transition forgery
+terminal certificate tamper
+```
 
----
+It also distinguishes same-terminal rewritten history from the previously checkpointed lineage.
 
-## **SECTION F — Practical Meaning**
-
-### **F1. What changes?**
-
-From:
-
-`audit = result of verification process`
-
-To:
-
-`audit = resolve(structure)`
-
----
-
-### **F2. System benefits**
-
-- resilient to missing data  
-- safe under inconsistency  
-- no pipeline dependency  
-- no replay dependency  
-
----
-
-### **F3. Role of verification**
-
-Reduced from:
-
-`mandatory → optional`
-
----
-
-### **F4. Practical Interpretation**
-
-Verification is not eliminated.
-
-Its role changes:
-
-- from → required for correctness  
-- to → optional for confirmation  
-
-SLANG-Audit shows:
-
-**correctness exists independently of verification workflows**
-
----
-
-### **F5. Role of audit trails**
-
-Reduced from:
-
-`required → representational`
-
----
-
-### **F6. What happens when data is missing?**
-
-Missing data results in incomplete structure.
-
-Outcome does not appear.
-
-- No assumptions are made  
-- No interpolation is performed  
-
----
-
-## **SECTION G — Why This Was Not Standard**
-
-### **G1. Historical assumption**
-
-Audit systems assumed:
-
-- verification is required  
-- replay is required  
-- process defines correctness  
-
----
-
-### **G2. Was this impossible?**
+### E7. Does a valid proof ledger establish external chronology?
 
 No.
 
-It was not formalized.
+Internal ledger verification establishes declared structural lineage consistency.
+
+A previously pinned checkpoint establishes identity with that committed lineage.
+
+Neither object independently proves when an external event occurred or when the checkpoint was externally published unless a separate trusted system authenticates or timestamps it.
 
 ---
 
-### **G3. What changed?**
+## Section F - Certificates, Verification, and Integrity
 
-- structure-first modeling  
-- deterministic resolution  
-- minimal executable proofs  
+### F1. What is a proof-carrying certificate?
 
----
+It is a deterministic machine-readable result object containing the structural state, target verdicts, closure and support information, target analysis, and integrity identities required by the released verification contract.
 
-### **G4. Core shift**
+See [Certificate and Verification](./Certificate-and-Verification.md).
 
-From:
+### F2. Can a false conclusion become valid merely by recomputing SHA-256 hashes?
 
-what was verified?
+The bundled semantic-forgery tests reject that attack for the covered structural contract.
 
-To:
+```text
+hash consistency
+!=
+semantic proof validity
+```
 
-is structure valid?
+Changing a claimed verdict, witness, criticality object, transition, or historical result and then recomputing outer identities does not make the altered semantics valid when independent structural recomputation disagrees.
 
----
+### F3. Why does the package include two verification implementations?
 
-## **SECTION H — Ecosystem Context**
+The package includes a Python reference verifier path and a separately implemented JavaScript verifier so portable proof verification is not dependent on one language runtime or one implementation path.
 
-### **H1. Structural progression**
+The JavaScript verifier does not import the Python resolver, invoke Python, or shell out to the producer.
 
-- STIME → time without clocks  
-- SSUM-Time → structural time reconstruction  
-- STOCRS → computation without execution  
-- SLANG → resolution without execution  
-- SLANG-Audit → audit without verification  
+See [Cross-Language Verification](./Cross-Language-Verification.md).
 
----
+### F4. What does the JavaScript verifier check?
 
-### **H2. Role of SLANG-Audit**
+It independently reconstructs the released v2.4.0 semantics for canonical structures, structural closure, target verdicts, minimal witnesses, counterfactual criticality, bundle identities, incremental deltas, proof-ledger lineage, and checkpoints.
 
-Domain-level application of:
+Its command surface includes:
 
-**verification-free structural correctness**
+```text
+--verify-bundle
+--verify-incremental
+--verify-ledger
+--verify-ledger-checkpoint
+```
 
----
+### F5. What is the cross-language conformance gate?
 
-## **SECTION I — Adoption & Implementation**
+It runs the same frozen verification surface through both implementations.
 
-### **I1. Easy adoption**
+The current gate covers 10 genuine bundles, six rehashed semantic mutations, one incremental bundle, one proof ledger, one checkpointed ledger, and the JavaScript verifier self-test.
 
-- audit validation layers  
-- compliance checks  
-- data integrity systems  
+Current result:
 
----
+```text
+TOTAL 39/39 PASS
+```
 
-### **I2. Moderate adoption**
+See the [Portable Certificate and Ledger Specification](./Portable-Certificate-and-Ledger-Specification.md).
 
-- enterprise audit systems  
-- distributed validation systems  
+### F6. What does the package verifier check?
 
----
+The package verifier checks the selected frozen artifact hashes, repository/package invariants, machine-readable artifacts, documented round trips, JavaScript verification, cross-language conformance, evidence content-binding self-test, and deterministic ledger rebuild behavior defined by the package verification surface.
 
-### **I3. Hard adoption**
+The verification command is:
 
-- process-heavy audit infrastructures  
+```text
+python -B validation/SLANG_Audit_Package_Verifier_v2_4_0.py --verify
+```
 
----
+### F7. What are the current bundled validation gates?
 
-### **I4. Hardware requirement**
+The current package records:
 
-None
+```text
+Core self-test:             166/166 PASS
+Proof-ledger validation:     50/50 PASS
+Cross-language conformance:  39/39 PASS
+Package verification:        104/104 PASS
+```
 
----
+These results establish deterministic behavior on the bundled verification surface. They do not constitute independent third-party certification.
 
-### **I5. Connectivity requirement**
+### F8. What is included in the checksum manifest?
 
-Not required for correctness
+The SHA-256 manifest protects selected frozen executable and machine-readable evidence artifacts, including:
 
----
+- the v2.4.0 reference resolver;
+- proof-ledger validation code;
+- the JavaScript standalone verifier;
+- the cross-language conformance gate;
+- the evidence content-binding verifier;
+- the package verifier;
+- the frozen cross-language conformance vectors;
+- the deterministic demo bundle;
+- the proof-ledger genesis bundle;
+- the frozen delta sequence;
+- the pinned checkpoint;
+- the complete frozen proof ledger;
+- the machine-readable proof-ledger validation report.
 
-## **SECTION J — Safety & Adversarial Handling**
+See [Integrity Scope](./Integrity-Scope.md).
 
-### **J1. Malicious input**
+### F9. Why are documentation, examples, workflows, and the diagram intentionally unhashed?
 
-`conflict → ABSTAIN`  
-`incomplete → INCOMPLETE`
+They are intentionally editable repository material.
 
----
+Their exclusion allows wording, presentation, diagrams, examples, CI configuration, rights notices, and other non-frozen repository surfaces to evolve without changing the identity of the frozen implementation and evidence surface.
 
-### **J2. Silent failure**
+### F10. What does `INDEPENDENT_THIRD_PARTY_REPRODUCTION: OPEN` mean?
 
-Avoided by design
+It is the repository's external reproduction status.
 
----
+Independent reviewers are invited to inspect the input contract and portable specification, reproduce the synthetic examples and proof lineage, independently test adversarial mutations, and report both successful and refused cases.
 
-### **J3. Fraud**
+The project-supplied JavaScript implementation strengthens implementation independence, but it is not itself third-party reproduction.
 
-Not eliminated
-
-But unsupported structure is **never validated**
-
----
-
-### **J4. Can attackers game the structure?**
-
-Only if they can produce **complete and consistent structure**.
-
-If:
-
-`structure incomplete → INCOMPLETE`  
-`structure inconsistent → ABSTAIN`
-
-Invalid manipulation does not produce valid outcomes.
-
----
-
-## **SECTION K — Comparison**
-
-### **K1. Traditional audit**
-
-requires verification
+The label does not claim independent certification, validation, or endorsement.
 
 ---
 
-### **K2. Blockchain audit**
+## Section G - Architecture and Repository Navigation
 
-requires ordering + consensus
+### G1. What is the core architectural flow?
 
----
+The architecture can be summarized as:
 
-### **K3. ORL**
+```text
+declared audit structure
+-> canonical normalization
+-> deterministic structural closure
+-> target-specific resolution
+-> proof-carrying certificate
+-> incremental proof delta
+-> chained proof ledger
+```
 
-removes order
+Target analysis additionally provides minimal witnesses, structural criticality, completion frontiers, and bounded repair counterfactuals.
 
----
+See [Architecture](./Architecture.md).
 
-### **K4. SLANG-Audit**
-
-removes verification dependency
-
----
-
-## **SECTION L — Boundaries**
-
-### **L1. What it does NOT claim**
-
-- not a full audit system  
-- not replacing all audit processes  
-- not eliminating communication  
-
----
-
-### **L2. Structural Gating Layer (Critical Positioning)**
-
-SLANG-Audit is a **structural gating layer**.
-
-It determines whether an audit outcome is:
-
-- visible  
-- not visible  
-- abstained  
-
-based on structure maturity.
-
-It does not replace audit systems.
-
-It provides a **deterministic correctness layer**.
-
-Verification remains useful — but becomes optional for outcome visibility.
-
----
-
-### **L3. Complexity**
-
-Shifted to **structural modeling**
-
----
-
-## **SECTION M — Skeptic Questions**
-
-### **M1. Isn’t rule evaluation itself a form of verification?**
+### G2. Does SLANG-Audit require external datasets or network access?
 
 No.
 
-It does not:
+The bundled examples and validation fixtures are synthetic project-authored structures. Reproduction does not require external audit datasets, financial records, policy documents, source PDFs, APIs, databases, or network access.
 
-- replay events  
-- validate step-by-step  
-- reconstruct history  
-- depend on audit trails  
+### G3. What runtime dependencies does the reference implementation require?
 
-It exposes **structural relationships** rather than performing verification workflow.
+The core v2.4.0 reference resolver uses Python 3.9+ and the Python standard library only. Full cross-language verification additionally uses Node.js 18+ with no external Node packages.
 
-Correctness emerges from:
+### G4. Where should a new reader begin?
 
-`resolve(structure)`
+1. [README](../README.md)
+2. [Quickstart](./Quickstart.md)
+3. [Input Contract](./Input-Contract.md)
+4. [Structural Model](./Structural-Model.md)
+5. [Certificate and Verification](./Certificate-and-Verification.md)
+6. [Portable Certificate and Ledger Specification](./Portable-Certificate-and-Ledger-Specification.md)
+7. [Cross-Language Verification](./Cross-Language-Verification.md)
+8. [Evidence Content Binding](./Evidence-Content-Binding.md)
+9. [Minimal Witness and Criticality](./Minimal-Witness-and-Criticality.md)
+10. [Incremental Proof Deltas](./Incremental-Proof-Deltas.md)
+11. [Proof Ledger and Checkpoints](./Proof-Ledger-and-Checkpoints.md)
+12. [External Checkpoint Anchoring](./External-Checkpoint-Anchoring.md)
+13. [Integrity Scope](./Integrity-Scope.md)
+14. [Scientific and Operational Boundaries](./Scientific-and-Operational-Boundaries.md)
 
----
-
-### **M2. Is this just delayed verification?**
-
-No.
-
-It removes dependency on process.
-
----
-
-### **M3. Is this equivalent to reconciliation?**
-
-No.
-
-Reconciliation is post-process.
-
-SLANG-Audit resolves correctness directly.
-
----
-
-### **M4. Can this fail?**
-
-Yes — if structure is defined incorrectly.
-
----
-
-### **M5. Why is the demo small?**
-
-To isolate the principle clearly.
-
----
-
-### **M6. Is this anti-audit?**
-
-No.
-
-Audit remains — but becomes structural.
-
----
-
-### **M7. Conservative interpretation**
-
-Some audit outcomes can be resolved without verification workflows
-
----
-
-### **M8. Strong interpretation**
-
-Verification may not be fundamental to audit correctness
-
----
-
-## **SECTION N — Audit & Regulatory Concerns**
-
-### **N1. How can an auditor trust a system without verification?**
-
-Trust shifts from **process → structure**.
-
-The final structure itself becomes the proof.
-
----
-
-### **N2. Where is the audit evidence?**
-
-The resolved structure is the evidence.
-
-`final structure = sufficient proof`
-
----
-
-### **N3. Structural Certificate (Forward Path)**
-
-In extended implementations:
-
-`same structure → same certificate`
-
-Certificate is:
-
-- reproducible  
-- execution-independent  
-- verification-independent  
-
----
-
-### **N4. How is traceability handled?**
-
-Optional structural annotations.
-
-Not required for correctness.
-
----
-
-### **N5. How does this align with regulatory requirements?**
-
-Provides a deterministic correctness layer.
-
-Regulatory systems can build on top.
-
----
-
-### **N6. Can this be audited externally?**
-
-Yes.
-
-`resolve(structure)` → identical outcome under equivalent structure
-
----
-
-### **N7. What replaces audit trails?**
-
-Nothing.
-
-They become optional.
-
----
-
-## ⭐ **Final One-Line Summary**
-
-SLANG-Audit is a deterministic structural resolution model where audit outcomes emerge directly from complete and consistent structure—without requiring verification workflows, replay mechanisms, reconciliation pipelines, ordering, or execution.
+For the broader ecosystem, see the [Shunyaya Symbolic Mathematics Master Docs](https://github.com/OMPSHUNYAYA/Shunyaya-Symbolic-Mathematics-Master-Docs).

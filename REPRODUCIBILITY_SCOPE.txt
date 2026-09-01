@@ -1,0 +1,33 @@
+SLANG-AUDIT — REPRODUCIBILITY SCOPE v2.4.0
+
+Runnable from this repository
+-----------------------------
+1. Core resolver self-test and demonstration.
+2. Resolution of editable synthetic audit examples.
+3. Certificate and bundle verification through the Python reference verifier path.
+4. Separately implemented JavaScript verification of bundles, incremental bundles, proof ledgers, and checkpoints without importing or invoking the Python resolver.
+5. Frozen cross-language conformance covering 10 genuine bundles and six rehashed semantic mutations.
+6. Minimal sufficient witness and target-criticality analysis exposed by the core resolver.
+7. Incremental proof-delta construction and verification with full-recomputation equivalence.
+8. Four-entry chained audit-evolution proof-ledger construction and checkpoint verification.
+9. Proof-ledger validation covering deletion, reordering, substitution, rehashed semantic forgery, terminal tamper, same-terminal history rewrite, branch detection, and prefix extension.
+10. Optional exact byte-to-SHA-256 evidence content-binding verification.
+11. Selected frozen-artifact integrity verification.
+
+No external source acquisition is required
+------------------------------------------
+All bundled examples, conformance vectors, and validation fixtures are synthetic project-authored structures. The package does not require external audit datasets, financial records, policy documents, accounting statements, source PDFs, APIs, databases, or network access.
+
+Reproduction boundary
+---------------------
+Reproducing a certificate or proof ledger establishes deterministic behavior under the declared structural contract. It does not verify the truth, provenance, legal sufficiency, or professional-audit adequacy of external evidence represented by a caller.
+
+Project-supplied cross-language verification
+--------------------------------------------
+The JavaScript verifier is separately implemented and does not call the Python producer. This strengthens portability and implementation independence, but it remains project-supplied validation rather than third-party reproduction.
+
+Independent reproduction
+------------------------
+Status: OPEN
+
+A stronger third-party reproduction should independently implement or inspect the published portable format specification, regenerate or verify the synthetic vectors and proof lineage, test adversarial mutations independently, and report both successful and refused cases without weakening the claim boundaries.

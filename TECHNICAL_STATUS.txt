@@ -1,0 +1,64 @@
+SLANG-AUDIT — TECHNICAL STATUS v2.4.0
+
+Reference implementation
+------------------------
+Status: FROZEN ARCHITECTURAL BASELINE
+Runtime: Python 3.9+ standard library only
+Core self-test: 166/166 PASS
+
+Separately implemented JavaScript verifier
+-------------------------------
+Runtime: Node.js 18+ standard runtime only
+External Node packages: none
+Standalone self-test: 4/4 PASS
+Cross-language conformance: 39/39 PASS
+
+Package verification
+--------------------
+Package gate: 104/104 PASS
+
+Proof-ledger validation
+-----------------------
+Validation checks: 50/50 PASS
+Ledger entries: 4
+Valid lineage verification: PASS
+Pinned checkpoint verification: PASS
+Deletion rejection: PASS
+Reordering rejection: PASS
+Delta substitution rejection: PASS
+Rehashed transition-forgery rejection: PASS
+Terminal tamper rejection: PASS
+Same-terminal alternative history differentiated by checkpoint: PASS
+Branch detection: PASS
+Prefix-extension detection: PASS
+
+Optional evidence content binding
+---------------------------------
+Verifier self-test: 5/5 PASS
+Semantics: exact supplied bytes -> SHA-256 commitment equality only
+External truth verification: NONE
+External source provenance verification: NONE
+
+Structural capabilities
+-----------------------
+- deterministic canonical audit structures;
+- PASS / VIOLATED / INCOMPLETE / ABSTAIN control verdicts;
+- proof-carrying target resolution;
+- target dependency isolation;
+- exact bounded minimal sufficient witnesses;
+- exact bounded structural criticality and counterfactual repair;
+- incremental proof-delta propagation with full-recomputation equivalence;
+- predecessor-bound proof ledgers, checkpoints, and lineage comparison;
+- portable cross-language verification surface.
+
+Operational boundary
+--------------------
+external_truth_verified:false
+external_source_provenance_verified:false
+replay_performed:false
+reconciliation_performed:false
+audit_opinion_authority:NONE
+
+Independent third-party reproduction
+------------------------------------
+Status: OPEN

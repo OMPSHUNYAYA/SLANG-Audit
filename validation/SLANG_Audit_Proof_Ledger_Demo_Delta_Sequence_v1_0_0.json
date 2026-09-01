@@ -1,0 +1,62 @@
+{
+  "deltas": [
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+      "delta_id": "slang_audit_delta_sha256:2eae39f44d250ff42fc39ac352b1bacb3c6d6f9a2fc1cf69d47e8515ec18485c",
+      "remove_evidence": [
+        "contracts_ledger"
+      ],
+      "remove_rules": [],
+      "schema": "SLANG-AUDIT-DELTA-1",
+      "upsert_evidence": [],
+      "upsert_rules": []
+    },
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:312bc575c6aef1ed9271c9ab2a4a14484f28f36e469f8b9350db81666c9fab81",
+      "delta_id": "slang_audit_delta_sha256:3c33d52e9611e8783f4e96631e48611ee834c9a4195e03ec094d5a93c46fc5e5",
+      "remove_evidence": [],
+      "remove_rules": [],
+      "schema": "SLANG-AUDIT-DELTA-1",
+      "upsert_evidence": [
+        {
+          "claims": {
+            "contracts_supported": true
+          },
+          "commitment": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+          "id": "contracts_replacement"
+        }
+      ],
+      "upsert_rules": []
+    },
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "delta_id": "slang_audit_delta_sha256:100c6fd505fbdbe74df69e0d3a259271cd0043be57d7cc854ac7af4473b35d4e",
+      "remove_evidence": [],
+      "remove_rules": [],
+      "schema": "SLANG-AUDIT-DELTA-1",
+      "upsert_evidence": [
+        {
+          "claims": {
+            "reported_profit_supported": false
+          },
+          "commitment": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+          "id": "counterstatement"
+        }
+      ],
+      "upsert_rules": []
+    },
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:73d771570f2b318b5583930dfbad572c10329858d90e8cee2f5a73f40137370f",
+      "delta_id": "slang_audit_delta_sha256:a59ff153fbd4800f3049a203873721058cdb81f45e578a5a9dab36415d3e5def",
+      "remove_evidence": [
+        "counterstatement"
+      ],
+      "remove_rules": [],
+      "schema": "SLANG-AUDIT-DELTA-1",
+      "upsert_evidence": [],
+      "upsert_rules": []
+    }
+  ],
+  "genesis_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+  "schema": "SLANG-AUDIT-LEDGER-DELTA-SEQUENCE-1"
+}

@@ -1,0 +1,57 @@
+{
+  "atoms": [
+    "contracts_supported",
+    "costs_supported",
+    "expense_supported",
+    "revenue_supported"
+  ],
+  "controls": [
+    {
+      "id": "profit_recognition",
+      "require": {
+        "expense_supported": true,
+        "revenue_supported": true
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "claims": {
+        "contracts_supported": true
+      },
+      "commitment": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "id": "contracts_ledger"
+    },
+    {
+      "claims": {
+        "costs_supported": true
+      },
+      "commitment": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "id": "cost_ledger"
+    }
+  ],
+  "rules": [
+    {
+      "id": "derive_expense_support",
+      "if_all": {
+        "costs_supported": true
+      },
+      "then": {
+        "expense_supported": true
+      }
+    },
+    {
+      "id": "derive_revenue_support",
+      "if_all": {
+        "contracts_supported": true
+      },
+      "then": {
+        "revenue_supported": true
+      }
+    }
+  ],
+  "schema": "SLANG-AUDIT-STRUCTURE-2",
+  "targets": [
+    "profit_recognition"
+  ]
+}

@@ -1,0 +1,14 @@
+SLANG-AUDIT v2.4.0 COPYRIGHT AND RIGHTS NOTICE
+
+Copyright (c) 2026 Shunyaya Framework contributors.
+
+SOFTWARE
+Project-authored reference implementation, verification code, workflow code, synthetic software test fixtures, and machine-readable verification artifacts are licensed under the Apache License, Version 2.0.
+
+ARCHITECTURE AND DOCUMENTATION
+Project-authored architecture, specifications, documentation, and explanatory materials, together with project-produced diagrams, are licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0), unless a file states otherwise.
+
+THIRD-PARTY MATERIALS
+Third-party materials remain subject to their respective rights and terms and are not relicensed by this notice.
+
+See LICENSE and THIRD_PARTY_NOTICES.txt.

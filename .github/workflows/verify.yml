@@ -1,0 +1,38 @@
+name: Verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  deterministic-verification:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --self-test
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --demo
+      - run: python -B validation/SLANG_Audit_Proof_Ledger_Validation_v1_0_0.py --self-test
+      - run: python -B validation/SLANG_Audit_Proof_Ledger_Validation_v1_0_0.py --run
+      - run: node validation/SLANG_Audit_Standalone_Verifier_v1_0_0.js --self-test
+      - run: python -B validation/SLANG_Audit_Cross_Language_Conformance_Gate_v1_0_0.py --self-test
+      - run: python -B validation/SLANG_Audit_Cross_Language_Conformance_Gate_v1_0_0.py --run
+      - run: python -B validation/SLANG_Audit_Evidence_Content_Binding_Verifier_v1_0_0.py --self-test
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --resolve examples/SLANG_Audit_Demo_Input_v2_4_0.json --pretty > /tmp/resolved_bundle.json
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --verify /tmp/resolved_bundle.json
+      - run: node validation/SLANG_Audit_Standalone_Verifier_v1_0_0.js --verify-bundle /tmp/resolved_bundle.json
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --ledger validation/SLANG_Audit_Proof_Ledger_Demo_Genesis_Bundle_v2_4_0.json validation/SLANG_Audit_Proof_Ledger_Demo_Delta_Sequence_v1_0_0.json --pretty > /tmp/proof_ledger.json
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --verify-ledger /tmp/proof_ledger.json
+      - run: python -B core/SLANG_Audit_Reference_Resolver_v2_4_0.py --verify-ledger-checkpoint /tmp/proof_ledger.json validation/SLANG_Audit_Proof_Ledger_Demo_Checkpoint_v1_0_0.json
+      - run: node validation/SLANG_Audit_Standalone_Verifier_v1_0_0.js --verify-ledger /tmp/proof_ledger.json
+      - run: node validation/SLANG_Audit_Standalone_Verifier_v1_0_0.js --verify-ledger-checkpoint /tmp/proof_ledger.json validation/SLANG_Audit_Proof_Ledger_Demo_Checkpoint_v1_0_0.json
+      - run: python -B validation/SLANG_Audit_Package_Verifier_v2_4_0.py --self-test
+      - run: python -B validation/SLANG_Audit_Package_Verifier_v2_4_0.py --verify

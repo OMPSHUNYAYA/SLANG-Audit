@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.tmp
+*.temp
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+proof_ledger.json
+incremental_bundle.json
+resolved_bundle.json

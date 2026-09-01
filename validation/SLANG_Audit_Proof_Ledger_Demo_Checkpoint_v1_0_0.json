@@ -1,0 +1,21 @@
+{
+  "audit_opinion_authority": "NONE",
+  "checkpoint_id": "slang_audit_ledger_checkpoint_sha256:985af2ae878c4ef8acea450ba8d3d7ef7bfe1ed4a1ac7fec3513db65c337f07a",
+  "checkpoint_semantics": "PINNED_LINEAGE_IDENTITY_REQUIRED_TO_DETECT_REBUILT_ALTERNATIVE_HISTORY",
+  "entry_count": 4,
+  "external_source_provenance_verified": false,
+  "external_truth_verified": false,
+  "genesis_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+  "genesis_structure_id": "slang_audit_structure_sha256:89d2922d618aee031980db4c65812cfb987e398f46a392dae9cc9ec89722f4de",
+  "last_entry_id": "slang_audit_ledger_entry_sha256:204d7b12602a628e8b9cd3eaee5c53d1ee92adbb1328f7b480cff5eb54a3d417",
+  "lineage_root_id": "slang_audit_lineage_root_sha256:2bafeb3d2e43f751b6091b3a0d443b1cc2be9226ae0a496fc5aea2f0dd75e5ee",
+  "schema": "SLANG-AUDIT-LEDGER-CHECKPOINT-1",
+  "terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+  "terminal_certificate_id": "slang_audit_certificate_sha256:95b0ca4143b66cf0f691a25769b977febc6b4f2994785a280474b62610c3b389",
+  "terminal_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8",
+  "terminal_target_proof_ids": {
+    "profit_recognition": "slang_audit_target_proof_sha256:c4fd2a4348d0b2d3b61709107421a2c0564d7cd0a284cf6bda65f2b319126097",
+    "reported_profit_alignment": "slang_audit_target_proof_sha256:d6ce63628e39988c224d634b9cab5323cc4e5a19d8dbddcbbcbea8448cc1875f"
+  },
+  "version": "2.4.0"
+}

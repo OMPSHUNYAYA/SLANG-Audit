@@ -1,0 +1,59 @@
+SLANG-AUDIT v2.4.0 THIRD-PARTY NOTICES
+
+1. BUNDLED SOURCE AND DATA BOUNDARY
+
+SLANG-Audit v2.4.0 does not bundle third-party audit datasets, financial statements, accounting records, access logs, policy documents, proprietary audit objects, third-party source code, or externally authored audit reports. The bundled audit structures, proof artifacts, examples, and validation fixtures are synthetic project-authored materials.
+
+The standard Apache License 2.0 text is reproduced in LICENSE as part of the repository license map.
+
+2. PYTHON
+
+The reference implementation and verification tools use Python standard-library facilities and require no external Python packages. Python is a third-party runtime and remains subject to its own license and terms.
+
+Python Software Foundation:
+https://www.python.org/
+
+Python license information:
+https://docs.python.org/3/license.html
+
+3. NODE.JS
+
+The standalone JavaScript verifier uses the Node.js standard runtime and requires no external Node packages. Node.js is a third-party runtime and remains subject to its own license and terms.
+
+Node.js:
+https://nodejs.org/
+
+Node.js license information:
+https://github.com/nodejs/node/blob/main/LICENSE
+
+4. GITHUB ACTIONS
+
+The repository includes a project-authored workflow that references standard GitHub Actions for repository checkout, Python setup, and Node.js setup. Those actions and the GitHub service remain subject to their own licenses and terms.
+
+GitHub:
+https://github.com/
+
+5. SHIELDS.IO
+
+The README references badge images served by Shields.io. Shields.io is a third-party service and remains subject to its own terms and licensing.
+
+Shields.io:
+https://shields.io/
+
+6. LICENSE REFERENCES
+
+The Apache License 2.0 and Creative Commons Attribution-NonCommercial 4.0 International License are third-party legal instruments referenced to state permissions applicable to project-authored materials. Their official texts remain controlled by their respective publishers.
+
+Apache License 2.0:
+https://www.apache.org/licenses/LICENSE-2.0
+
+CC BY-NC 4.0:
+https://creativecommons.org/licenses/by-nc/4.0/
+
+7. NAMES, TRADEMARKS, AND FACTUAL REFERENCES
+
+Third-party names, trademarks, standards, services, and factual references, if any, remain subject to their respective rights. Their mention does not imply endorsement, affiliation, certification, or sponsorship.
+
+8. NO OVERRIDING OF THIRD-PARTY TERMS
+
+Nothing in the SLANG-Audit license map overrides rights, obligations, or restrictions that apply to third-party materials or services.

@@ -1,0 +1,81 @@
+{
+  "atoms": [
+    "contracts_supported",
+    "costs_supported",
+    "revenue_supported",
+    "expense_supported",
+    "profit_bridge_supported",
+    "reported_profit_supported"
+  ],
+  "controls": [
+    {
+      "id": "profit_recognition",
+      "require": {
+        "expense_supported": true,
+        "revenue_supported": true
+      }
+    },
+    {
+      "id": "reported_profit_alignment",
+      "require": {
+        "profit_bridge_supported": true,
+        "reported_profit_supported": true
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "claims": {
+        "contracts_supported": true
+      },
+      "commitment": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "id": "contracts_ledger"
+    },
+    {
+      "claims": {
+        "costs_supported": true
+      },
+      "commitment": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "id": "cost_ledger"
+    },
+    {
+      "claims": {
+        "reported_profit_supported": true
+      },
+      "commitment": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "id": "reported_statement"
+    },
+    {
+      "claims": {
+        "profit_bridge_supported": true
+      },
+      "commitment": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "id": "profit_bridge"
+    }
+  ],
+  "rules": [
+    {
+      "id": "derive_revenue_support",
+      "if_all": {
+        "contracts_supported": true
+      },
+      "then": {
+        "revenue_supported": true
+      }
+    },
+    {
+      "id": "derive_expense_support",
+      "if_all": {
+        "costs_supported": true
+      },
+      "then": {
+        "expense_supported": true
+      }
+    }
+  ],
+  "schema": "SLANG-AUDIT-STRUCTURE-2",
+  "targets": [
+    "profit_recognition",
+    "reported_profit_alignment"
+  ]
+}

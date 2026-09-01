@@ -1,0 +1,40 @@
+SLANG-AUDIT — CLAIM BOUNDARIES v2.4.0
+
+Permitted framing
+-----------------
+- bounded structural resolution of caller-declared audit evidence, rules, and controls;
+- deterministic canonicalization and target-specific verdicts under the declared Boolean audit contract;
+- proof-carrying certificates whose semantics are recomputed during verification;
+- target dependency isolation and exact bounded minimal sufficient witnesses;
+- exact bounded minimal verdict cuts and structural completion/repair counterfactuals;
+- predecessor-bound incremental proof deltas with full-recomputation equivalence;
+- tamper-evident declared audit lineage with deterministic checkpoints and branch comparison;
+- evidence commitments as identity-binding declarations only.
+
+Required qualifications
+-----------------------
+- all evidence claims are caller-declared structural inputs;
+- evidence commitments bind declared identities but do not authenticate underlying source material;
+- minimal witnesses and counterfactuals are exact only within declared resource bounds and the admitted structural model;
+- incremental verification preserves target-local proofs only when the recomputed dependency analysis supports preservation;
+- checkpoint verification establishes identity with a previously pinned structural lineage, not historical authenticity by itself;
+- a self-consistent alternative history can form a different valid lineage unless compared with a previously pinned checkpoint;
+- independent third-party reproduction remains open.
+
+Not claimed
+-----------
+- external truth verification;
+- external source provenance verification;
+- replacement for professional auditing, assurance, attestation, accounting judgment, legal review, regulatory procedure, or internal-control testing;
+- audit opinion authority, certification, accreditation, institutional endorsement, or compliance approval;
+- authenticity of bank records, financial statements, access logs, policies, inventories, datasets, signatures, timestamps, identities, or evidence sources;
+- that replay or reconciliation is unnecessary in real-world audits;
+- that verification is unnecessary or non-fundamental;
+- that structural PASS means a real-world audit opinion should be issued;
+- universal correctness across undeclared semantics, laws, standards, industries, or evidence types;
+- cryptographic signatures, trusted timestamping, decentralized consensus, or external publication of checkpoints;
+- performance superiority over full recomputation.
+
+OPTIONAL CONTENT-BINDING BOUNDARY
+-------------------------------
+The separate evidence content-binding verifier can establish exact supplied-byte equality with a declared SHA-256 commitment. It does not establish source provenance, authenticity, completeness, truth, legal validity, or trusted time.

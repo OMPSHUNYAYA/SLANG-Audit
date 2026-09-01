@@ -1,0 +1,117 @@
+{
+  "alternative_history_internally_valid": true,
+  "alternative_history_original_checkpoint_rejected": true,
+  "alternative_history_same_terminal": true,
+  "audit_opinion_authority": "NONE",
+  "branch_detection": {
+    "common_prefix_branch": {
+      "branch_point_bundle_id": "slang_audit_bundle_sha256:312bc575c6aef1ed9271c9ab2a4a14484f28f36e469f8b9350db81666c9fab81",
+      "common_prefix_entries": 1,
+      "comparison_id": "slang_audit_ledger_branch_comparison_sha256:645cfc468e8bb4573b38c5eede292cfe268f832d0f46764200a9d34b37607ea5",
+      "left_entry_count": 4,
+      "left_ledger_id": "slang_audit_proof_ledger_sha256:5f7e3b3e8457349ca794c02c4441f31dd8e0fcab4004e5cfaaf050dd1c174542",
+      "left_terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "right_entry_count": 2,
+      "right_ledger_id": "slang_audit_proof_ledger_sha256:3d4d7f83243f547f0d028beaa2b5b4caf108cdd641bf695951d56ea174ed299a",
+      "right_terminal_bundle_id": "slang_audit_bundle_sha256:ca0870e5622f3347f4ea6caef91ed4e1876a50a231d1aba7a882efb3b3da0ff4",
+      "schema": "SLANG-AUDIT-LEDGER-BRANCH-COMPARISON-1",
+      "status": "BRANCH_DETECTED",
+      "version": "2.4.0"
+    },
+    "prefix_extension": {
+      "branch_point_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "common_prefix_entries": 2,
+      "comparison_id": "slang_audit_ledger_branch_comparison_sha256:6e49c722d58db6054f81559b4c936be0bba7708dba387898c4dee1c51bfcea57",
+      "left_entry_count": 2,
+      "left_ledger_id": "slang_audit_proof_ledger_sha256:a31be434a1d5551eefb874451267d186f6e87aec52bf8180fe1e4114e5976bb6",
+      "left_terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "right_entry_count": 4,
+      "right_ledger_id": "slang_audit_proof_ledger_sha256:5f7e3b3e8457349ca794c02c4441f31dd8e0fcab4004e5cfaaf050dd1c174542",
+      "right_terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "schema": "SLANG-AUDIT-LEDGER-BRANCH-COMPARISON-1",
+      "status": "PREFIX_EXTENSION",
+      "version": "2.4.0"
+    },
+    "same_terminal_rewrite": {
+      "branch_point_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+      "common_prefix_entries": 0,
+      "comparison_id": "slang_audit_ledger_branch_comparison_sha256:9b96c17302f3018a7f4e3e070a6140830eb90a9416bdf83dfa71adb3fc10db75",
+      "left_entry_count": 4,
+      "left_ledger_id": "slang_audit_proof_ledger_sha256:5f7e3b3e8457349ca794c02c4441f31dd8e0fcab4004e5cfaaf050dd1c174542",
+      "left_terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "right_entry_count": 3,
+      "right_ledger_id": "slang_audit_proof_ledger_sha256:56871903d4fd2e3f3c94c3727823e145d7d7d11bbe83e821f25e99a5d4bc8d77",
+      "right_terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "schema": "SLANG-AUDIT-LEDGER-BRANCH-COMPARISON-1",
+      "status": "BRANCH_DETECTED",
+      "version": "2.4.0"
+    }
+  },
+  "checkpoint_id": "slang_audit_ledger_checkpoint_sha256:985af2ae878c4ef8acea450ba8d3d7ef7bfe1ed4a1ac7fec3513db65c337f07a",
+  "checkpoint_verification": "PASS",
+  "checks_passed": 50,
+  "checks_total": 50,
+  "deletion_rejected": true,
+  "entry_count": 4,
+  "external_source_provenance_verified": false,
+  "external_truth_verified": false,
+  "frozen_resolver_sha256": "a3376eb81b7e9ca625f4839fefc4cfbeda227f515109c80450c6a6bd7d7edf98",
+  "frozen_resolver_version": "2.4.0",
+  "ledger_id": "slang_audit_proof_ledger_sha256:5f7e3b3e8457349ca794c02c4441f31dd8e0fcab4004e5cfaaf050dd1c174542",
+  "lineage_root_id": "slang_audit_lineage_root_sha256:2bafeb3d2e43f751b6091b3a0d443b1cc2be9226ae0a496fc5aea2f0dd75e5ee",
+  "rehashed_transition_forgery_rejected": true,
+  "reordering_rejected": true,
+  "result": "PASS",
+  "schema": "SLANG-AUDIT-PROOF-LEDGER-VALIDATION-REPORT-1",
+  "substitution_rejected": true,
+  "terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+  "terminal_tamper_rejected": true,
+  "transitions": [
+    {
+      "entry_id": "slang_audit_ledger_entry_sha256:6f40b68eca17f8a3e349f34b8336bd5e1f5e5d742a14ba134165d177900728ed",
+      "index": 1,
+      "transitions": {
+        "profit_recognition": {
+          "from": "PASS",
+          "proof_changed": true,
+          "to": "INCOMPLETE"
+        }
+      }
+    },
+    {
+      "entry_id": "slang_audit_ledger_entry_sha256:1332859a1f10072a7f0fbb5a750fa5906fa8e3726ca7e5e33b1114db735fa672",
+      "index": 2,
+      "transitions": {
+        "profit_recognition": {
+          "from": "INCOMPLETE",
+          "proof_changed": true,
+          "to": "PASS"
+        }
+      }
+    },
+    {
+      "entry_id": "slang_audit_ledger_entry_sha256:3cafe00d131efabe1d8008b95cc9e04b1b06f285ab1438c337a7afd1f49c1d35",
+      "index": 3,
+      "transitions": {
+        "reported_profit_alignment": {
+          "from": "PASS",
+          "proof_changed": true,
+          "to": "ABSTAIN"
+        }
+      }
+    },
+    {
+      "entry_id": "slang_audit_ledger_entry_sha256:204d7b12602a628e8b9cd3eaee5c53d1ee92adbb1328f7b480cff5eb54a3d417",
+      "index": 4,
+      "transitions": {
+        "reported_profit_alignment": {
+          "from": "ABSTAIN",
+          "proof_changed": true,
+          "to": "PASS"
+        }
+      }
+    }
+  ],
+  "valid_ledger_verification": "PASS",
+  "version": "1.0.0"
+}

@@ -1,0 +1,1204 @@
+{
+  "audit_opinion_authority": "NONE",
+  "checkpoint": {
+    "audit_opinion_authority": "NONE",
+    "checkpoint_id": "slang_audit_ledger_checkpoint_sha256:985af2ae878c4ef8acea450ba8d3d7ef7bfe1ed4a1ac7fec3513db65c337f07a",
+    "checkpoint_semantics": "PINNED_LINEAGE_IDENTITY_REQUIRED_TO_DETECT_REBUILT_ALTERNATIVE_HISTORY",
+    "entry_count": 4,
+    "external_source_provenance_verified": false,
+    "external_truth_verified": false,
+    "genesis_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+    "genesis_structure_id": "slang_audit_structure_sha256:89d2922d618aee031980db4c65812cfb987e398f46a392dae9cc9ec89722f4de",
+    "last_entry_id": "slang_audit_ledger_entry_sha256:204d7b12602a628e8b9cd3eaee5c53d1ee92adbb1328f7b480cff5eb54a3d417",
+    "lineage_root_id": "slang_audit_lineage_root_sha256:2bafeb3d2e43f751b6091b3a0d443b1cc2be9226ae0a496fc5aea2f0dd75e5ee",
+    "schema": "SLANG-AUDIT-LEDGER-CHECKPOINT-1",
+    "terminal_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+    "terminal_certificate_id": "slang_audit_certificate_sha256:95b0ca4143b66cf0f691a25769b977febc6b4f2994785a280474b62610c3b389",
+    "terminal_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8",
+    "terminal_target_proof_ids": {
+      "profit_recognition": "slang_audit_target_proof_sha256:c4fd2a4348d0b2d3b61709107421a2c0564d7cd0a284cf6bda65f2b319126097",
+      "reported_profit_alignment": "slang_audit_target_proof_sha256:d6ce63628e39988c224d634b9cab5323cc4e5a19d8dbddcbbcbea8448cc1875f"
+    },
+    "version": "2.4.0"
+  },
+  "entries": [
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+      "base_structure_id": "slang_audit_structure_sha256:89d2922d618aee031980db4c65812cfb987e398f46a392dae9cc9ec89722f4de",
+      "delta": {
+        "base_bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+        "delta_id": "slang_audit_delta_sha256:2eae39f44d250ff42fc39ac352b1bacb3c6d6f9a2fc1cf69d47e8515ec18485c",
+        "remove_evidence": [
+          "contracts_ledger"
+        ],
+        "remove_rules": [],
+        "schema": "SLANG-AUDIT-DELTA-1",
+        "upsert_evidence": [],
+        "upsert_rules": []
+      },
+      "delta_certificate_id": "slang_audit_delta_certificate_sha256:41bd53c46eaa848a048b34a8ce6f207f73a07bb8df6858176c7922e46a32e73c",
+      "delta_id": "slang_audit_delta_sha256:2eae39f44d250ff42fc39ac352b1bacb3c6d6f9a2fc1cf69d47e8515ec18485c",
+      "dependency_impacted_targets": [
+        "profit_recognition"
+      ],
+      "entry_id": "slang_audit_ledger_entry_sha256:6f40b68eca17f8a3e349f34b8336bd5e1f5e5d742a14ba134165d177900728ed",
+      "incremental_bundle_id": "slang_audit_incremental_bundle_sha256:2890afe156b32f536519a5b8f2dda4209a353d6d2d8df1acdf5cdd1e5ed427d7",
+      "index": 1,
+      "predecessor_entry_id": null,
+      "preserved_targets": [
+        "reported_profit_alignment"
+      ],
+      "proof_changed_targets": [
+        "profit_recognition"
+      ],
+      "transitions": {
+        "profit_recognition": {
+          "from": "PASS",
+          "proof_changed": true,
+          "to": "INCOMPLETE"
+        }
+      },
+      "updated_bundle_id": "slang_audit_bundle_sha256:312bc575c6aef1ed9271c9ab2a4a14484f28f36e469f8b9350db81666c9fab81",
+      "updated_structure_id": "slang_audit_structure_sha256:b8d63df30d62ba61f2409a7b3d60d29b535807c441a693eedc7118a2d88445c7"
+    },
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:312bc575c6aef1ed9271c9ab2a4a14484f28f36e469f8b9350db81666c9fab81",
+      "base_structure_id": "slang_audit_structure_sha256:b8d63df30d62ba61f2409a7b3d60d29b535807c441a693eedc7118a2d88445c7",
+      "delta": {
+        "base_bundle_id": "slang_audit_bundle_sha256:312bc575c6aef1ed9271c9ab2a4a14484f28f36e469f8b9350db81666c9fab81",
+        "delta_id": "slang_audit_delta_sha256:3c33d52e9611e8783f4e96631e48611ee834c9a4195e03ec094d5a93c46fc5e5",
+        "remove_evidence": [],
+        "remove_rules": [],
+        "schema": "SLANG-AUDIT-DELTA-1",
+        "upsert_evidence": [
+          {
+            "claims": {
+              "contracts_supported": true
+            },
+            "commitment": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+            "id": "contracts_replacement"
+          }
+        ],
+        "upsert_rules": []
+      },
+      "delta_certificate_id": "slang_audit_delta_certificate_sha256:9cce3221c0ec8f6103caf033d280a1f14bb47ac6cecb917d14ebc49b31f3eb66",
+      "delta_id": "slang_audit_delta_sha256:3c33d52e9611e8783f4e96631e48611ee834c9a4195e03ec094d5a93c46fc5e5",
+      "dependency_impacted_targets": [
+        "profit_recognition"
+      ],
+      "entry_id": "slang_audit_ledger_entry_sha256:1332859a1f10072a7f0fbb5a750fa5906fa8e3726ca7e5e33b1114db735fa672",
+      "incremental_bundle_id": "slang_audit_incremental_bundle_sha256:13eb8baeffe6836564f348bf6595c5d0465416f6273a7f6298c41fe8eb913369",
+      "index": 2,
+      "predecessor_entry_id": "slang_audit_ledger_entry_sha256:6f40b68eca17f8a3e349f34b8336bd5e1f5e5d742a14ba134165d177900728ed",
+      "preserved_targets": [
+        "reported_profit_alignment"
+      ],
+      "proof_changed_targets": [
+        "profit_recognition"
+      ],
+      "transitions": {
+        "profit_recognition": {
+          "from": "INCOMPLETE",
+          "proof_changed": true,
+          "to": "PASS"
+        }
+      },
+      "updated_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "updated_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8"
+    },
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "base_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8",
+      "delta": {
+        "base_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+        "delta_id": "slang_audit_delta_sha256:100c6fd505fbdbe74df69e0d3a259271cd0043be57d7cc854ac7af4473b35d4e",
+        "remove_evidence": [],
+        "remove_rules": [],
+        "schema": "SLANG-AUDIT-DELTA-1",
+        "upsert_evidence": [
+          {
+            "claims": {
+              "reported_profit_supported": false
+            },
+            "commitment": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+            "id": "counterstatement"
+          }
+        ],
+        "upsert_rules": []
+      },
+      "delta_certificate_id": "slang_audit_delta_certificate_sha256:c8cc8594c2c7b446c35a22f1a4daec7522659a6315e7404845751ff79537d798",
+      "delta_id": "slang_audit_delta_sha256:100c6fd505fbdbe74df69e0d3a259271cd0043be57d7cc854ac7af4473b35d4e",
+      "dependency_impacted_targets": [
+        "reported_profit_alignment"
+      ],
+      "entry_id": "slang_audit_ledger_entry_sha256:3cafe00d131efabe1d8008b95cc9e04b1b06f285ab1438c337a7afd1f49c1d35",
+      "incremental_bundle_id": "slang_audit_incremental_bundle_sha256:590411c274b55ba5a7bc15143762205ac38438fdaa6891982fac18bbc7fa9896",
+      "index": 3,
+      "predecessor_entry_id": "slang_audit_ledger_entry_sha256:1332859a1f10072a7f0fbb5a750fa5906fa8e3726ca7e5e33b1114db735fa672",
+      "preserved_targets": [
+        "profit_recognition"
+      ],
+      "proof_changed_targets": [
+        "reported_profit_alignment"
+      ],
+      "transitions": {
+        "reported_profit_alignment": {
+          "from": "PASS",
+          "proof_changed": true,
+          "to": "ABSTAIN"
+        }
+      },
+      "updated_bundle_id": "slang_audit_bundle_sha256:73d771570f2b318b5583930dfbad572c10329858d90e8cee2f5a73f40137370f",
+      "updated_structure_id": "slang_audit_structure_sha256:05279c98adfe6a2204ce1c63fb3bc4097c572e6cfbef2746932a94dadeff9c98"
+    },
+    {
+      "base_bundle_id": "slang_audit_bundle_sha256:73d771570f2b318b5583930dfbad572c10329858d90e8cee2f5a73f40137370f",
+      "base_structure_id": "slang_audit_structure_sha256:05279c98adfe6a2204ce1c63fb3bc4097c572e6cfbef2746932a94dadeff9c98",
+      "delta": {
+        "base_bundle_id": "slang_audit_bundle_sha256:73d771570f2b318b5583930dfbad572c10329858d90e8cee2f5a73f40137370f",
+        "delta_id": "slang_audit_delta_sha256:a59ff153fbd4800f3049a203873721058cdb81f45e578a5a9dab36415d3e5def",
+        "remove_evidence": [
+          "counterstatement"
+        ],
+        "remove_rules": [],
+        "schema": "SLANG-AUDIT-DELTA-1",
+        "upsert_evidence": [],
+        "upsert_rules": []
+      },
+      "delta_certificate_id": "slang_audit_delta_certificate_sha256:2f7717add493f1986f9307769ffb49660b5b1d60ee98c561756255459bca272d",
+      "delta_id": "slang_audit_delta_sha256:a59ff153fbd4800f3049a203873721058cdb81f45e578a5a9dab36415d3e5def",
+      "dependency_impacted_targets": [
+        "reported_profit_alignment"
+      ],
+      "entry_id": "slang_audit_ledger_entry_sha256:204d7b12602a628e8b9cd3eaee5c53d1ee92adbb1328f7b480cff5eb54a3d417",
+      "incremental_bundle_id": "slang_audit_incremental_bundle_sha256:8da7ba347869255aa29eb36b07ab0467d9c1d4fbb87925b4401ffd95114f272a",
+      "index": 4,
+      "predecessor_entry_id": "slang_audit_ledger_entry_sha256:3cafe00d131efabe1d8008b95cc9e04b1b06f285ab1438c337a7afd1f49c1d35",
+      "preserved_targets": [
+        "profit_recognition"
+      ],
+      "proof_changed_targets": [
+        "reported_profit_alignment"
+      ],
+      "transitions": {
+        "reported_profit_alignment": {
+          "from": "ABSTAIN",
+          "proof_changed": true,
+          "to": "PASS"
+        }
+      },
+      "updated_bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+      "updated_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8"
+    }
+  ],
+  "external_source_provenance_verified": false,
+  "external_truth_verified": false,
+  "genesis_bundle": {
+    "bundle_id": "slang_audit_bundle_sha256:68ee64f3ca3754fb7535e08cc06f0abf1a51431746a877d5ab304cdaafb4c580",
+    "canonical_structure": {
+      "atoms": [
+        "contracts_supported",
+        "costs_supported",
+        "expense_supported",
+        "profit_bridge_supported",
+        "reported_profit_supported",
+        "revenue_supported"
+      ],
+      "canonical_structure_id": "slang_audit_structure_sha256:89d2922d618aee031980db4c65812cfb987e398f46a392dae9cc9ec89722f4de",
+      "canonicalization_id": "SLANG-AUDIT-CANONICAL-BOOLEAN-1",
+      "control_ids": [
+        "slang_audit_control_sha256:8e6da011f232e034bab8b80de2dd7e2fa7faa8df6294b7ebec9ca20524961790",
+        "slang_audit_control_sha256:8d6a028f67e9c31ae29ab4b48b1171286a26645a685782a05ee5fbbcda44aae3"
+      ],
+      "controls": [
+        {
+          "id": "profit_recognition",
+          "require": {
+            "expense_supported": true,
+            "revenue_supported": true
+          }
+        },
+        {
+          "id": "reported_profit_alignment",
+          "require": {
+            "profit_bridge_supported": true,
+            "reported_profit_supported": true
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "claims": {
+            "contracts_supported": true
+          },
+          "commitment": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "id": "contracts_ledger"
+        },
+        {
+          "claims": {
+            "costs_supported": true
+          },
+          "commitment": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+          "id": "cost_ledger"
+        },
+        {
+          "claims": {
+            "profit_bridge_supported": true
+          },
+          "commitment": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+          "id": "profit_bridge"
+        },
+        {
+          "claims": {
+            "reported_profit_supported": true
+          },
+          "commitment": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+          "id": "reported_statement"
+        }
+      ],
+      "evidence_ids": [
+        "slang_audit_evidence_sha256:d92201739e3cd9fc33e906ae4adf2903bb9da5fec181f677bfbc9d012ee5048e",
+        "slang_audit_evidence_sha256:58d0c75c4d3f865feaede9b93128087a241a77cdba4930534e92cdf985039ecb",
+        "slang_audit_evidence_sha256:a149d79468ec667deb2e333716e2b959d9f39b32af4195944a1592e9e0a1d8d8",
+        "slang_audit_evidence_sha256:a4812ac7075c994757afbae99abbb85353e349a7cc0fda9c0d4ea14938967d9b"
+      ],
+      "profile_id": "SLANG-AUDIT-DECLARED-EVIDENCE-1",
+      "rule_ids": [
+        "slang_audit_rule_sha256:e2a87d4cc533460bb82f706414920dd8eee5b925b59d27a12fcd6405328cebe2",
+        "slang_audit_rule_sha256:196078d7b83cc139eb804daea411584871f7acbc22381b3d56d55b6074497ef8"
+      ],
+      "rules": [
+        {
+          "id": "derive_expense_support",
+          "if_all": {
+            "costs_supported": true
+          },
+          "then": {
+            "expense_supported": true
+          }
+        },
+        {
+          "id": "derive_revenue_support",
+          "if_all": {
+            "contracts_supported": true
+          },
+          "then": {
+            "revenue_supported": true
+          }
+        }
+      ],
+      "schema": "SLANG-AUDIT-CANONICAL-1",
+      "source_schema": "SLANG-AUDIT-STRUCTURE-2",
+      "targets": [
+        "profit_recognition",
+        "reported_profit_alignment"
+      ]
+    },
+    "certificate": {
+      "authority": "NONE",
+      "canonical_structure_id": "slang_audit_structure_sha256:89d2922d618aee031980db4c65812cfb987e398f46a392dae9cc9ec89722f4de",
+      "certificate_id": "slang_audit_certificate_sha256:50d62ab85f3285dbec3d0f56c528aa11cc0793c2abaf4d4ea0240fcea05ce0cc",
+      "profile_id": "SLANG-AUDIT-DECLARED-EVIDENCE-1",
+      "proof": {
+        "closure": {
+          "atom_states": {
+            "contracts_supported": "TRUE",
+            "costs_supported": "TRUE",
+            "expense_supported": "TRUE",
+            "profit_bridge_supported": "TRUE",
+            "reported_profit_supported": "TRUE",
+            "revenue_supported": "TRUE"
+          },
+          "contradictory_atoms": [],
+          "rule_firings": [
+            {
+              "conclusion": "expense_supported=true",
+              "premises": [
+                "costs_supported=true"
+              ],
+              "rule_id": "derive_expense_support"
+            },
+            {
+              "conclusion": "revenue_supported=true",
+              "premises": [
+                "contracts_supported=true"
+              ],
+              "rule_id": "derive_revenue_support"
+            }
+          ],
+          "support": {
+            "contracts_supported=true": [
+              "evidence:contracts_ledger"
+            ],
+            "costs_supported=true": [
+              "evidence:cost_ledger"
+            ],
+            "expense_supported=true": [
+              "rule:derive_expense_support"
+            ],
+            "profit_bridge_supported=true": [
+              "evidence:profit_bridge"
+            ],
+            "reported_profit_supported=true": [
+              "evidence:reported_statement"
+            ],
+            "revenue_supported=true": [
+              "rule:derive_revenue_support"
+            ]
+          }
+        },
+        "counterfactual_search": {
+          "candidate_literal_limit": 24,
+          "candidate_source_limit": 24,
+          "evaluation_limit_per_analysis": 65536,
+          "exact_when_status_available": true,
+          "silent_truncation": false
+        },
+        "counterfactual_semantics": "DECLARED_STRUCTURE_ONLY_NO_REAL_WORLD_AUDIT_AUTHORITY",
+        "declared_evidence_only": true,
+        "evidence_commitments": {
+          "all_evidence_committed": true,
+          "commitment_semantics": "IDENTITY_BINDING_ONLY",
+          "committed_evidence_count": 4,
+          "declared_evidence_count": 4
+        },
+        "external_source_provenance_verified": false,
+        "external_truth_verified": false,
+        "minimal_witness_search": {
+          "candidate_limit_per_literal": 512,
+          "combination_limit_per_target": 16384,
+          "exact_within_declared_resource_bounds": true,
+          "silent_truncation": false
+        },
+        "minimal_witness_semantics": "TARGET_SPECIFIC_DECLARED_STRUCTURE_ONLY",
+        "reconciliation_performed": false,
+        "replay_performed": false,
+        "schema": "SLANG-AUDIT-PROOF-5",
+        "target_analysis": {
+          "profit_recognition": {
+            "counterfactual_analysis": {
+              "baseline_verdict": "PASS",
+              "completion_frontier": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE"
+              },
+              "decisive_witness_id": "slang_audit_minimal_witness_sha256:b7b5faed3a446931a5182f5ae8966479b8a03c1cd477ff63e73a9b065e2008fb",
+              "minimal_repair_to_pass": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE_ALREADY_PASS"
+              },
+              "minimal_verdict_cut": {
+                "evaluations": 4,
+                "exact_within_declared_resource_bounds": true,
+                "minimal_change_count": 1,
+                "minimal_cut_count": 4,
+                "selected": {
+                  "baseline_verdict": "PASS",
+                  "change_count": 1,
+                  "counterfactual_structure_id": "slang_audit_structure_sha256:2e9b3c2679700d964acf5c9387c9794159d1efb178b62ad01a917bfbf63005c7",
+                  "counterfactual_verdict": "INCOMPLETE",
+                  "cut_id": "slang_audit_minimal_cut_sha256:44e0bb8bc5b83d702b342ef1501456366411b5947869f5e56b12591763e51971",
+                  "removed_evidence_count": 1,
+                  "removed_evidence_sources": [
+                    "contracts_ledger"
+                  ],
+                  "removed_rule_count": 0,
+                  "removed_rules": [],
+                  "semantics": "DECLARED_STRUCTURE_SOURCE_REMOVAL_ONLY",
+                  "target": "profit_recognition"
+                },
+                "status": "AVAILABLE"
+              },
+              "semantics": "TARGET_SPECIFIC_DECLARED_STRUCTURE_COUNTERFACTUAL_ONLY"
+            },
+            "dependency_cone": {
+              "atoms": [
+                "contracts_supported",
+                "costs_supported",
+                "expense_supported",
+                "revenue_supported"
+              ],
+              "control_id": "profit_recognition",
+              "control_identity_id": "slang_audit_control_sha256:8e6da011f232e034bab8b80de2dd7e2fa7faa8df6294b7ebec9ca20524961790",
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:d92201739e3cd9fc33e906ae4adf2903bb9da5fec181f677bfbc9d012ee5048e",
+                "slang_audit_evidence_sha256:58d0c75c4d3f865feaede9b93128087a241a77cdba4930534e92cdf985039ecb"
+              ],
+              "evidence_sources": [
+                "contracts_ledger",
+                "cost_ledger"
+              ],
+              "excluded_atoms": [
+                "profit_bridge_supported",
+                "reported_profit_supported"
+              ],
+              "excluded_evidence_sources": [
+                "profit_bridge",
+                "reported_statement"
+              ],
+              "excluded_rules": [],
+              "literals": [
+                "contracts_supported=false",
+                "contracts_supported=true",
+                "costs_supported=false",
+                "costs_supported=true",
+                "expense_supported=false",
+                "expense_supported=true",
+                "revenue_supported=false",
+                "revenue_supported=true"
+              ],
+              "rule_identity_ids": [
+                "slang_audit_rule_sha256:e2a87d4cc533460bb82f706414920dd8eee5b925b59d27a12fcd6405328cebe2",
+                "slang_audit_rule_sha256:196078d7b83cc139eb804daea411584871f7acbc22381b3d56d55b6074497ef8"
+              ],
+              "rules": [
+                "derive_expense_support",
+                "derive_revenue_support"
+              ]
+            },
+            "minimal_sufficient_witness": {
+              "control_identity_id": "slang_audit_control_sha256:8e6da011f232e034bab8b80de2dd7e2fa7faa8df6294b7ebec9ca20524961790",
+              "decisive_literals": [
+                "expense_supported=true",
+                "revenue_supported=true"
+              ],
+              "derivation_paths": {
+                "expense_supported=true": {
+                  "evidence_sources": [
+                    "cost_ledger"
+                  ],
+                  "rules": [
+                    "derive_expense_support"
+                  ]
+                },
+                "revenue_supported=true": {
+                  "evidence_sources": [
+                    "contracts_ledger"
+                  ],
+                  "rules": [
+                    "derive_revenue_support"
+                  ]
+                }
+              },
+              "evidence_count": 2,
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:d92201739e3cd9fc33e906ae4adf2903bb9da5fec181f677bfbc9d012ee5048e",
+                "slang_audit_evidence_sha256:58d0c75c4d3f865feaede9b93128087a241a77cdba4930534e92cdf985039ecb"
+              ],
+              "evidence_sources": [
+                "contracts_ledger",
+                "cost_ledger"
+              ],
+              "optimization_metric": "MIN_EVIDENCE_PLUS_RULE_COUNT_THEN_CANONICAL",
+              "reproduced_verdict": "PASS",
+              "rule_count": 2,
+              "rule_identity_ids": [
+                "slang_audit_rule_sha256:e2a87d4cc533460bb82f706414920dd8eee5b925b59d27a12fcd6405328cebe2",
+                "slang_audit_rule_sha256:196078d7b83cc139eb804daea411584871f7acbc22381b3d56d55b6074497ef8"
+              ],
+              "rules": [
+                "derive_expense_support",
+                "derive_revenue_support"
+              ],
+              "semantics": "DECLARED_STRUCTURE_ONLY",
+              "source_count": 4,
+              "target": "profit_recognition",
+              "verdict": "PASS",
+              "witness_id": "slang_audit_minimal_witness_sha256:b7b5faed3a446931a5182f5ae8966479b8a03c1cd477ff63e73a9b065e2008fb",
+              "witness_structure_id": "slang_audit_structure_sha256:e3699cf21744d1264205f4ceaba8e2e1688a86a930e738fcd00c430f900dc71b"
+            },
+            "witness_status": "AVAILABLE"
+          },
+          "reported_profit_alignment": {
+            "counterfactual_analysis": {
+              "baseline_verdict": "PASS",
+              "completion_frontier": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE"
+              },
+              "decisive_witness_id": "slang_audit_minimal_witness_sha256:20686646ee60f4b5110612b5f5204c965e7bf13475f7750bb80651836142f4e4",
+              "minimal_repair_to_pass": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE_ALREADY_PASS"
+              },
+              "minimal_verdict_cut": {
+                "evaluations": 2,
+                "exact_within_declared_resource_bounds": true,
+                "minimal_change_count": 1,
+                "minimal_cut_count": 2,
+                "selected": {
+                  "baseline_verdict": "PASS",
+                  "change_count": 1,
+                  "counterfactual_structure_id": "slang_audit_structure_sha256:54d4296d16e0117cc824cd115d011b86fea98d52af11fae10049e8591a1618c0",
+                  "counterfactual_verdict": "INCOMPLETE",
+                  "cut_id": "slang_audit_minimal_cut_sha256:356ef5ce8b5d6ecb4a901417e3d659dc457dc0537e6ba7d57d9d492294d24fc9",
+                  "removed_evidence_count": 1,
+                  "removed_evidence_sources": [
+                    "profit_bridge"
+                  ],
+                  "removed_rule_count": 0,
+                  "removed_rules": [],
+                  "semantics": "DECLARED_STRUCTURE_SOURCE_REMOVAL_ONLY",
+                  "target": "reported_profit_alignment"
+                },
+                "status": "AVAILABLE"
+              },
+              "semantics": "TARGET_SPECIFIC_DECLARED_STRUCTURE_COUNTERFACTUAL_ONLY"
+            },
+            "dependency_cone": {
+              "atoms": [
+                "profit_bridge_supported",
+                "reported_profit_supported"
+              ],
+              "control_id": "reported_profit_alignment",
+              "control_identity_id": "slang_audit_control_sha256:8d6a028f67e9c31ae29ab4b48b1171286a26645a685782a05ee5fbbcda44aae3",
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:a149d79468ec667deb2e333716e2b959d9f39b32af4195944a1592e9e0a1d8d8",
+                "slang_audit_evidence_sha256:a4812ac7075c994757afbae99abbb85353e349a7cc0fda9c0d4ea14938967d9b"
+              ],
+              "evidence_sources": [
+                "profit_bridge",
+                "reported_statement"
+              ],
+              "excluded_atoms": [
+                "contracts_supported",
+                "costs_supported",
+                "expense_supported",
+                "revenue_supported"
+              ],
+              "excluded_evidence_sources": [
+                "contracts_ledger",
+                "cost_ledger"
+              ],
+              "excluded_rules": [
+                "derive_expense_support",
+                "derive_revenue_support"
+              ],
+              "literals": [
+                "profit_bridge_supported=false",
+                "profit_bridge_supported=true",
+                "reported_profit_supported=false",
+                "reported_profit_supported=true"
+              ],
+              "rule_identity_ids": [],
+              "rules": []
+            },
+            "minimal_sufficient_witness": {
+              "control_identity_id": "slang_audit_control_sha256:8d6a028f67e9c31ae29ab4b48b1171286a26645a685782a05ee5fbbcda44aae3",
+              "decisive_literals": [
+                "profit_bridge_supported=true",
+                "reported_profit_supported=true"
+              ],
+              "derivation_paths": {
+                "profit_bridge_supported=true": {
+                  "evidence_sources": [
+                    "profit_bridge"
+                  ],
+                  "rules": []
+                },
+                "reported_profit_supported=true": {
+                  "evidence_sources": [
+                    "reported_statement"
+                  ],
+                  "rules": []
+                }
+              },
+              "evidence_count": 2,
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:a149d79468ec667deb2e333716e2b959d9f39b32af4195944a1592e9e0a1d8d8",
+                "slang_audit_evidence_sha256:a4812ac7075c994757afbae99abbb85353e349a7cc0fda9c0d4ea14938967d9b"
+              ],
+              "evidence_sources": [
+                "profit_bridge",
+                "reported_statement"
+              ],
+              "optimization_metric": "MIN_EVIDENCE_PLUS_RULE_COUNT_THEN_CANONICAL",
+              "reproduced_verdict": "PASS",
+              "rule_count": 0,
+              "rule_identity_ids": [],
+              "rules": [],
+              "semantics": "DECLARED_STRUCTURE_ONLY",
+              "source_count": 2,
+              "target": "reported_profit_alignment",
+              "verdict": "PASS",
+              "witness_id": "slang_audit_minimal_witness_sha256:20686646ee60f4b5110612b5f5204c965e7bf13475f7750bb80651836142f4e4",
+              "witness_structure_id": "slang_audit_structure_sha256:618c5aa6dd548537d38ae8c648370d4575a4a5f863b5c773008baca2b8eb7db1"
+            },
+            "witness_status": "AVAILABLE"
+          }
+        },
+        "target_proof_ids": {
+          "profit_recognition": "slang_audit_target_proof_sha256:858f30651aa57c7ed3c64a417d20772d2f2b94b469e194012acd13dbab0900a4",
+          "reported_profit_alignment": "slang_audit_target_proof_sha256:d6ce63628e39988c224d634b9cab5323cc4e5a19d8dbddcbbcbea8448cc1875f"
+        },
+        "target_proof_semantics": "TARGET_LOCAL_IDENTITY_EXCLUDES_UNRELATED_DECLARED_STRUCTURE"
+      },
+      "reason_codes": [
+        "TARGETS_STRUCTURALLY_RESOLVED"
+      ],
+      "resolution": {
+        "reason_codes": [
+          "TARGETS_STRUCTURALLY_RESOLVED"
+        ],
+        "state": "RESOLVED",
+        "targets": {
+          "profit_recognition": {
+            "control_id": "profit_recognition",
+            "requirement_count": 2,
+            "verdict": "PASS",
+            "witness": {
+              "kind": "SATISFACTION",
+              "satisfied_requirements": [
+                "expense_supported=true",
+                "revenue_supported=true"
+              ],
+              "supports": {
+                "expense_supported=true": [
+                  "rule:derive_expense_support"
+                ],
+                "revenue_supported=true": [
+                  "rule:derive_revenue_support"
+                ]
+              }
+            }
+          },
+          "reported_profit_alignment": {
+            "control_id": "reported_profit_alignment",
+            "requirement_count": 2,
+            "verdict": "PASS",
+            "witness": {
+              "kind": "SATISFACTION",
+              "satisfied_requirements": [
+                "profit_bridge_supported=true",
+                "reported_profit_supported=true"
+              ],
+              "supports": {
+                "profit_bridge_supported=true": [
+                  "evidence:profit_bridge"
+                ],
+                "reported_profit_supported=true": [
+                  "evidence:reported_statement"
+                ]
+              }
+            }
+          }
+        },
+        "verdicts": {
+          "profit_recognition": "PASS",
+          "reported_profit_alignment": "PASS"
+        }
+      },
+      "schema": "SLANG-AUDIT-CERTIFICATE-6",
+      "state": "RESOLVED",
+      "version": "2.4.0"
+    },
+    "schema": "SLANG-AUDIT-BUNDLE-6",
+    "version": "2.4.0"
+  },
+  "ledger_id": "slang_audit_proof_ledger_sha256:5f7e3b3e8457349ca794c02c4441f31dd8e0fcab4004e5cfaaf050dd1c174542",
+  "lineage_semantics": "ORDERED_PREDECESSOR_BOUND_DECLARED_AUDIT_STATE_EVOLUTION",
+  "schema": "SLANG-AUDIT-PROOF-LEDGER-1",
+  "terminal_bundle": {
+    "bundle_id": "slang_audit_bundle_sha256:283c562eddafec16a34704cc6282eadaacadf8fbf99af6c2e408d137985b053d",
+    "canonical_structure": {
+      "atoms": [
+        "contracts_supported",
+        "costs_supported",
+        "expense_supported",
+        "profit_bridge_supported",
+        "reported_profit_supported",
+        "revenue_supported"
+      ],
+      "canonical_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8",
+      "canonicalization_id": "SLANG-AUDIT-CANONICAL-BOOLEAN-1",
+      "control_ids": [
+        "slang_audit_control_sha256:8e6da011f232e034bab8b80de2dd7e2fa7faa8df6294b7ebec9ca20524961790",
+        "slang_audit_control_sha256:8d6a028f67e9c31ae29ab4b48b1171286a26645a685782a05ee5fbbcda44aae3"
+      ],
+      "controls": [
+        {
+          "id": "profit_recognition",
+          "require": {
+            "expense_supported": true,
+            "revenue_supported": true
+          }
+        },
+        {
+          "id": "reported_profit_alignment",
+          "require": {
+            "profit_bridge_supported": true,
+            "reported_profit_supported": true
+          }
+        }
+      ],
+      "evidence": [
+        {
+          "claims": {
+            "contracts_supported": true
+          },
+          "commitment": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+          "id": "contracts_replacement"
+        },
+        {
+          "claims": {
+            "costs_supported": true
+          },
+          "commitment": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+          "id": "cost_ledger"
+        },
+        {
+          "claims": {
+            "profit_bridge_supported": true
+          },
+          "commitment": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+          "id": "profit_bridge"
+        },
+        {
+          "claims": {
+            "reported_profit_supported": true
+          },
+          "commitment": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+          "id": "reported_statement"
+        }
+      ],
+      "evidence_ids": [
+        "slang_audit_evidence_sha256:9ea3747ddcdb02113706089ae229149138154666bc2f4cffa075a16f94e07f50",
+        "slang_audit_evidence_sha256:58d0c75c4d3f865feaede9b93128087a241a77cdba4930534e92cdf985039ecb",
+        "slang_audit_evidence_sha256:a149d79468ec667deb2e333716e2b959d9f39b32af4195944a1592e9e0a1d8d8",
+        "slang_audit_evidence_sha256:a4812ac7075c994757afbae99abbb85353e349a7cc0fda9c0d4ea14938967d9b"
+      ],
+      "profile_id": "SLANG-AUDIT-DECLARED-EVIDENCE-1",
+      "rule_ids": [
+        "slang_audit_rule_sha256:e2a87d4cc533460bb82f706414920dd8eee5b925b59d27a12fcd6405328cebe2",
+        "slang_audit_rule_sha256:196078d7b83cc139eb804daea411584871f7acbc22381b3d56d55b6074497ef8"
+      ],
+      "rules": [
+        {
+          "id": "derive_expense_support",
+          "if_all": {
+            "costs_supported": true
+          },
+          "then": {
+            "expense_supported": true
+          }
+        },
+        {
+          "id": "derive_revenue_support",
+          "if_all": {
+            "contracts_supported": true
+          },
+          "then": {
+            "revenue_supported": true
+          }
+        }
+      ],
+      "schema": "SLANG-AUDIT-CANONICAL-1",
+      "source_schema": "SLANG-AUDIT-STRUCTURE-2",
+      "targets": [
+        "profit_recognition",
+        "reported_profit_alignment"
+      ]
+    },
+    "certificate": {
+      "authority": "NONE",
+      "canonical_structure_id": "slang_audit_structure_sha256:cc6e5a76e632ed60077ffccfad8fd9dd4f0aa89a2d9b476ab1b2ab57e99940e8",
+      "certificate_id": "slang_audit_certificate_sha256:95b0ca4143b66cf0f691a25769b977febc6b4f2994785a280474b62610c3b389",
+      "profile_id": "SLANG-AUDIT-DECLARED-EVIDENCE-1",
+      "proof": {
+        "closure": {
+          "atom_states": {
+            "contracts_supported": "TRUE",
+            "costs_supported": "TRUE",
+            "expense_supported": "TRUE",
+            "profit_bridge_supported": "TRUE",
+            "reported_profit_supported": "TRUE",
+            "revenue_supported": "TRUE"
+          },
+          "contradictory_atoms": [],
+          "rule_firings": [
+            {
+              "conclusion": "expense_supported=true",
+              "premises": [
+                "costs_supported=true"
+              ],
+              "rule_id": "derive_expense_support"
+            },
+            {
+              "conclusion": "revenue_supported=true",
+              "premises": [
+                "contracts_supported=true"
+              ],
+              "rule_id": "derive_revenue_support"
+            }
+          ],
+          "support": {
+            "contracts_supported=true": [
+              "evidence:contracts_replacement"
+            ],
+            "costs_supported=true": [
+              "evidence:cost_ledger"
+            ],
+            "expense_supported=true": [
+              "rule:derive_expense_support"
+            ],
+            "profit_bridge_supported=true": [
+              "evidence:profit_bridge"
+            ],
+            "reported_profit_supported=true": [
+              "evidence:reported_statement"
+            ],
+            "revenue_supported=true": [
+              "rule:derive_revenue_support"
+            ]
+          }
+        },
+        "counterfactual_search": {
+          "candidate_literal_limit": 24,
+          "candidate_source_limit": 24,
+          "evaluation_limit_per_analysis": 65536,
+          "exact_when_status_available": true,
+          "silent_truncation": false
+        },
+        "counterfactual_semantics": "DECLARED_STRUCTURE_ONLY_NO_REAL_WORLD_AUDIT_AUTHORITY",
+        "declared_evidence_only": true,
+        "evidence_commitments": {
+          "all_evidence_committed": true,
+          "commitment_semantics": "IDENTITY_BINDING_ONLY",
+          "committed_evidence_count": 4,
+          "declared_evidence_count": 4
+        },
+        "external_source_provenance_verified": false,
+        "external_truth_verified": false,
+        "minimal_witness_search": {
+          "candidate_limit_per_literal": 512,
+          "combination_limit_per_target": 16384,
+          "exact_within_declared_resource_bounds": true,
+          "silent_truncation": false
+        },
+        "minimal_witness_semantics": "TARGET_SPECIFIC_DECLARED_STRUCTURE_ONLY",
+        "reconciliation_performed": false,
+        "replay_performed": false,
+        "schema": "SLANG-AUDIT-PROOF-5",
+        "target_analysis": {
+          "profit_recognition": {
+            "counterfactual_analysis": {
+              "baseline_verdict": "PASS",
+              "completion_frontier": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE"
+              },
+              "decisive_witness_id": "slang_audit_minimal_witness_sha256:df375cdd41ffbb174e1f1deb0e5565a0f1244fad4874bc32b50ea1856c20ba2f",
+              "minimal_repair_to_pass": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE_ALREADY_PASS"
+              },
+              "minimal_verdict_cut": {
+                "evaluations": 4,
+                "exact_within_declared_resource_bounds": true,
+                "minimal_change_count": 1,
+                "minimal_cut_count": 4,
+                "selected": {
+                  "baseline_verdict": "PASS",
+                  "change_count": 1,
+                  "counterfactual_structure_id": "slang_audit_structure_sha256:2e9b3c2679700d964acf5c9387c9794159d1efb178b62ad01a917bfbf63005c7",
+                  "counterfactual_verdict": "INCOMPLETE",
+                  "cut_id": "slang_audit_minimal_cut_sha256:9069645e32795a44fde3dd49b9c6033e6cb90c75c3e420e1d4449d3c0525f2e1",
+                  "removed_evidence_count": 1,
+                  "removed_evidence_sources": [
+                    "contracts_replacement"
+                  ],
+                  "removed_rule_count": 0,
+                  "removed_rules": [],
+                  "semantics": "DECLARED_STRUCTURE_SOURCE_REMOVAL_ONLY",
+                  "target": "profit_recognition"
+                },
+                "status": "AVAILABLE"
+              },
+              "semantics": "TARGET_SPECIFIC_DECLARED_STRUCTURE_COUNTERFACTUAL_ONLY"
+            },
+            "dependency_cone": {
+              "atoms": [
+                "contracts_supported",
+                "costs_supported",
+                "expense_supported",
+                "revenue_supported"
+              ],
+              "control_id": "profit_recognition",
+              "control_identity_id": "slang_audit_control_sha256:8e6da011f232e034bab8b80de2dd7e2fa7faa8df6294b7ebec9ca20524961790",
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:9ea3747ddcdb02113706089ae229149138154666bc2f4cffa075a16f94e07f50",
+                "slang_audit_evidence_sha256:58d0c75c4d3f865feaede9b93128087a241a77cdba4930534e92cdf985039ecb"
+              ],
+              "evidence_sources": [
+                "contracts_replacement",
+                "cost_ledger"
+              ],
+              "excluded_atoms": [
+                "profit_bridge_supported",
+                "reported_profit_supported"
+              ],
+              "excluded_evidence_sources": [
+                "profit_bridge",
+                "reported_statement"
+              ],
+              "excluded_rules": [],
+              "literals": [
+                "contracts_supported=false",
+                "contracts_supported=true",
+                "costs_supported=false",
+                "costs_supported=true",
+                "expense_supported=false",
+                "expense_supported=true",
+                "revenue_supported=false",
+                "revenue_supported=true"
+              ],
+              "rule_identity_ids": [
+                "slang_audit_rule_sha256:e2a87d4cc533460bb82f706414920dd8eee5b925b59d27a12fcd6405328cebe2",
+                "slang_audit_rule_sha256:196078d7b83cc139eb804daea411584871f7acbc22381b3d56d55b6074497ef8"
+              ],
+              "rules": [
+                "derive_expense_support",
+                "derive_revenue_support"
+              ]
+            },
+            "minimal_sufficient_witness": {
+              "control_identity_id": "slang_audit_control_sha256:8e6da011f232e034bab8b80de2dd7e2fa7faa8df6294b7ebec9ca20524961790",
+              "decisive_literals": [
+                "expense_supported=true",
+                "revenue_supported=true"
+              ],
+              "derivation_paths": {
+                "expense_supported=true": {
+                  "evidence_sources": [
+                    "cost_ledger"
+                  ],
+                  "rules": [
+                    "derive_expense_support"
+                  ]
+                },
+                "revenue_supported=true": {
+                  "evidence_sources": [
+                    "contracts_replacement"
+                  ],
+                  "rules": [
+                    "derive_revenue_support"
+                  ]
+                }
+              },
+              "evidence_count": 2,
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:9ea3747ddcdb02113706089ae229149138154666bc2f4cffa075a16f94e07f50",
+                "slang_audit_evidence_sha256:58d0c75c4d3f865feaede9b93128087a241a77cdba4930534e92cdf985039ecb"
+              ],
+              "evidence_sources": [
+                "contracts_replacement",
+                "cost_ledger"
+              ],
+              "optimization_metric": "MIN_EVIDENCE_PLUS_RULE_COUNT_THEN_CANONICAL",
+              "reproduced_verdict": "PASS",
+              "rule_count": 2,
+              "rule_identity_ids": [
+                "slang_audit_rule_sha256:e2a87d4cc533460bb82f706414920dd8eee5b925b59d27a12fcd6405328cebe2",
+                "slang_audit_rule_sha256:196078d7b83cc139eb804daea411584871f7acbc22381b3d56d55b6074497ef8"
+              ],
+              "rules": [
+                "derive_expense_support",
+                "derive_revenue_support"
+              ],
+              "semantics": "DECLARED_STRUCTURE_ONLY",
+              "source_count": 4,
+              "target": "profit_recognition",
+              "verdict": "PASS",
+              "witness_id": "slang_audit_minimal_witness_sha256:df375cdd41ffbb174e1f1deb0e5565a0f1244fad4874bc32b50ea1856c20ba2f",
+              "witness_structure_id": "slang_audit_structure_sha256:f304b1a51a65f2a97f943a4bae67d3ebae8c65a4d3bccb854dbcb76388d0bd5e"
+            },
+            "witness_status": "AVAILABLE"
+          },
+          "reported_profit_alignment": {
+            "counterfactual_analysis": {
+              "baseline_verdict": "PASS",
+              "completion_frontier": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE"
+              },
+              "decisive_witness_id": "slang_audit_minimal_witness_sha256:20686646ee60f4b5110612b5f5204c965e7bf13475f7750bb80651836142f4e4",
+              "minimal_repair_to_pass": {
+                "baseline_verdict": "PASS",
+                "status": "NOT_APPLICABLE_ALREADY_PASS"
+              },
+              "minimal_verdict_cut": {
+                "evaluations": 2,
+                "exact_within_declared_resource_bounds": true,
+                "minimal_change_count": 1,
+                "minimal_cut_count": 2,
+                "selected": {
+                  "baseline_verdict": "PASS",
+                  "change_count": 1,
+                  "counterfactual_structure_id": "slang_audit_structure_sha256:4337c00fb1358152c78682973d548935d9c40003cbfd0a5882bfbc58f79b92c6",
+                  "counterfactual_verdict": "INCOMPLETE",
+                  "cut_id": "slang_audit_minimal_cut_sha256:356ef5ce8b5d6ecb4a901417e3d659dc457dc0537e6ba7d57d9d492294d24fc9",
+                  "removed_evidence_count": 1,
+                  "removed_evidence_sources": [
+                    "profit_bridge"
+                  ],
+                  "removed_rule_count": 0,
+                  "removed_rules": [],
+                  "semantics": "DECLARED_STRUCTURE_SOURCE_REMOVAL_ONLY",
+                  "target": "reported_profit_alignment"
+                },
+                "status": "AVAILABLE"
+              },
+              "semantics": "TARGET_SPECIFIC_DECLARED_STRUCTURE_COUNTERFACTUAL_ONLY"
+            },
+            "dependency_cone": {
+              "atoms": [
+                "profit_bridge_supported",
+                "reported_profit_supported"
+              ],
+              "control_id": "reported_profit_alignment",
+              "control_identity_id": "slang_audit_control_sha256:8d6a028f67e9c31ae29ab4b48b1171286a26645a685782a05ee5fbbcda44aae3",
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:a149d79468ec667deb2e333716e2b959d9f39b32af4195944a1592e9e0a1d8d8",
+                "slang_audit_evidence_sha256:a4812ac7075c994757afbae99abbb85353e349a7cc0fda9c0d4ea14938967d9b"
+              ],
+              "evidence_sources": [
+                "profit_bridge",
+                "reported_statement"
+              ],
+              "excluded_atoms": [
+                "contracts_supported",
+                "costs_supported",
+                "expense_supported",
+                "revenue_supported"
+              ],
+              "excluded_evidence_sources": [
+                "contracts_replacement",
+                "cost_ledger"
+              ],
+              "excluded_rules": [
+                "derive_expense_support",
+                "derive_revenue_support"
+              ],
+              "literals": [
+                "profit_bridge_supported=false",
+                "profit_bridge_supported=true",
+                "reported_profit_supported=false",
+                "reported_profit_supported=true"
+              ],
+              "rule_identity_ids": [],
+              "rules": []
+            },
+            "minimal_sufficient_witness": {
+              "control_identity_id": "slang_audit_control_sha256:8d6a028f67e9c31ae29ab4b48b1171286a26645a685782a05ee5fbbcda44aae3",
+              "decisive_literals": [
+                "profit_bridge_supported=true",
+                "reported_profit_supported=true"
+              ],
+              "derivation_paths": {
+                "profit_bridge_supported=true": {
+                  "evidence_sources": [
+                    "profit_bridge"
+                  ],
+                  "rules": []
+                },
+                "reported_profit_supported=true": {
+                  "evidence_sources": [
+                    "reported_statement"
+                  ],
+                  "rules": []
+                }
+              },
+              "evidence_count": 2,
+              "evidence_identity_ids": [
+                "slang_audit_evidence_sha256:a149d79468ec667deb2e333716e2b959d9f39b32af4195944a1592e9e0a1d8d8",
+                "slang_audit_evidence_sha256:a4812ac7075c994757afbae99abbb85353e349a7cc0fda9c0d4ea14938967d9b"
+              ],
+              "evidence_sources": [
+                "profit_bridge",
+                "reported_statement"
+              ],
+              "optimization_metric": "MIN_EVIDENCE_PLUS_RULE_COUNT_THEN_CANONICAL",
+              "reproduced_verdict": "PASS",
+              "rule_count": 0,
+              "rule_identity_ids": [],
+              "rules": [],
+              "semantics": "DECLARED_STRUCTURE_ONLY",
+              "source_count": 2,
+              "target": "reported_profit_alignment",
+              "verdict": "PASS",
+              "witness_id": "slang_audit_minimal_witness_sha256:20686646ee60f4b5110612b5f5204c965e7bf13475f7750bb80651836142f4e4",
+              "witness_structure_id": "slang_audit_structure_sha256:618c5aa6dd548537d38ae8c648370d4575a4a5f863b5c773008baca2b8eb7db1"
+            },
+            "witness_status": "AVAILABLE"
+          }
+        },
+        "target_proof_ids": {
+          "profit_recognition": "slang_audit_target_proof_sha256:c4fd2a4348d0b2d3b61709107421a2c0564d7cd0a284cf6bda65f2b319126097",
+          "reported_profit_alignment": "slang_audit_target_proof_sha256:d6ce63628e39988c224d634b9cab5323cc4e5a19d8dbddcbbcbea8448cc1875f"
+        },
+        "target_proof_semantics": "TARGET_LOCAL_IDENTITY_EXCLUDES_UNRELATED_DECLARED_STRUCTURE"
+      },
+      "reason_codes": [
+        "TARGETS_STRUCTURALLY_RESOLVED"
+      ],
+      "resolution": {
+        "reason_codes": [
+          "TARGETS_STRUCTURALLY_RESOLVED"
+        ],
+        "state": "RESOLVED",
+        "targets": {
+          "profit_recognition": {
+            "control_id": "profit_recognition",
+            "requirement_count": 2,
+            "verdict": "PASS",
+            "witness": {
+              "kind": "SATISFACTION",
+              "satisfied_requirements": [
+                "expense_supported=true",
+                "revenue_supported=true"
+              ],
+              "supports": {
+                "expense_supported=true": [
+                  "rule:derive_expense_support"
+                ],
+                "revenue_supported=true": [
+                  "rule:derive_revenue_support"
+                ]
+              }
+            }
+          },
+          "reported_profit_alignment": {
+            "control_id": "reported_profit_alignment",
+            "requirement_count": 2,
+            "verdict": "PASS",
+            "witness": {
+              "kind": "SATISFACTION",
+              "satisfied_requirements": [
+                "profit_bridge_supported=true",
+                "reported_profit_supported=true"
+              ],
+              "supports": {
+                "profit_bridge_supported=true": [
+                  "evidence:profit_bridge"
+                ],
+                "reported_profit_supported=true": [
+                  "evidence:reported_statement"
+                ]
+              }
+            }
+          }
+        },
+        "verdicts": {
+          "profit_recognition": "PASS",
+          "reported_profit_alignment": "PASS"
+        }
+      },
+      "schema": "SLANG-AUDIT-CERTIFICATE-6",
+      "state": "RESOLVED",
+      "version": "2.4.0"
+    },
+    "schema": "SLANG-AUDIT-BUNDLE-6",
+    "version": "2.4.0"
+  },
+  "version": "2.4.0"
+}
