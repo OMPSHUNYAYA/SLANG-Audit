@@ -39,8 +39,17 @@ def run(args: Sequence[str]) -> Tuple[int, str, str]:
 
 
 def write_json(path: Path, value: object) -> None:
-    path.write_text(json.dumps(value, ensure_ascii=True, sort_keys=True, separators=(",", ":"), allow_nan=False) + "\n", encoding="utf-8", newline="\n")
-
+    payload = (
+        json.dumps(
+            value,
+            ensure_ascii=True,
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        )
+        + "\n"
+    )
+    path.write_bytes(payload.encode("utf-8"))
 
 def self_test() -> Checks:
     c = Checks()
